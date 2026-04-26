@@ -27,7 +27,7 @@ export const CONTENT = {
         { id: "contact", label: "Contact" },
       ],
       cta: "Download CV",
-      ctaHref: "/assets/CV.JC-2026_Inglés.pdf",
+      ctaHref: "/cv-jean-carlo-vallejos.pdf",
     },
     hero: {
       kicker: "Profile / Nº 01",
@@ -282,7 +282,7 @@ export const CONTENT = {
       lines: [
         { k: "Email", v: "jean@jcjvp.com", href: "mailto:jean@jcjvp.com" },
         { k: "LinkedIn", v: "linkedin.com/in/jcvallpon", href: "https://www.linkedin.com/in/jcvallpon/" },
-        { k: "CV", v: "Download — PDF", href: "/assets/CV.JC-2026_Inglés.pdf" },
+        { k: "CV", v: "Download — PDF", href: "/cv-jean-carlo-vallejos.pdf" },
       ],
       futureLinks: [
         { k: "GitHub", v: "github.com/jcjvp", href: "https://github.com/jcjvp" },
@@ -321,7 +321,7 @@ export const CONTENT = {
         { id: "contact", label: "Contacto" },
       ],
       cta: "Descargar CV",
-      ctaHref: "/assets/CV.JC-2026_Inglés.pdf",
+      ctaHref: "/cv-jean-carlo-vallejos.pdf",
     },
     hero: {
       kicker: "Perfil / Nº 01",
@@ -576,7 +576,7 @@ export const CONTENT = {
       lines: [
         { k: "Email", v: "jean@jcjvp.com", href: "mailto:jean@jcjvp.com" },
         { k: "LinkedIn", v: "linkedin.com/in/jcvallpon", href: "https://www.linkedin.com/in/jcvallpon/" },
-        { k: "CV", v: "Descargar — PDF", href: "/assets/CV.JC-2026_Inglés.pdf" },
+        { k: "CV", v: "Descargar — PDF", href: "/cv-jean-carlo-vallejos.pdf" },
       ],
       futureLinks: [
         { k: "GitHub", v: "github.com/jcjvp", href: "https://github.com/jcjvp" },
