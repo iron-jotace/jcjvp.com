@@ -154,6 +154,31 @@ export const ProfileSection = ({ content }) => {
   );
 };
 
+export const HelpSection = ({ content }) => {
+  const h = content.help;
+  return (
+    <Section id="help" number={h.number} title={h.title} lead={h.lead} screenLabel="Where I can help">
+      <Stagger className="ed-help" stagger={0.065}>
+        <div className="ed-help-grid">
+          {h.items.map((item, i) => (
+            <AnimatedRow as="article" key={item.title} className="ed-help-item">
+              <p className="ed-help-num mono">{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="ed-help-title serif">{item.title}</h3>
+              <p className="ed-help-body">{item.body}</p>
+              <ul className="ed-help-tags" aria-label={item.title}>
+                {item.tags.map((tag) => (
+                  <li key={tag} className="mono">{tag}</li>
+                ))}
+              </ul>
+            </AnimatedRow>
+          ))}
+        </div>
+        <AnimatedRow as="p" className="ed-help-closing serif-italic">{h.closing}</AnimatedRow>
+      </Stagger>
+    </Section>
+  );
+};
+
 // The single dual-track borrow from Direction B.
 export const TracksSection = ({ content }) => {
   const t = content.tracks;

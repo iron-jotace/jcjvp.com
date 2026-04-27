@@ -36,14 +36,14 @@ export const CONTENT = {
       name: "Jean Carlo Jesus Vallejos Pongo",
       role: "Chief AI & Data Architect",
       standfirst:
-        "Chief AI & Data Architect leading enterprise Data, Analytics and GenAI architecture for banking environments across AWS, governed data platforms, conversational AI and agentic workflows.",
-      credibility: "AWS · GenAI · Banking · Data Architecture · Professor",
+        "Chief AI & Data Architect leading enterprise Data, Analytics and GenAI architecture across complex enterprise environments, governed data platforms, conversational AI and agentic workflows.",
+      credibility: "AWS · GenAI · Enterprise Data & AI · Architecture · Professor",
       imageAlt:
         "Jean Carlo Jesus Vallejos Pongo seated outdoors in Barcelona, presented as an enterprise AI and data architecture profile.",
       meta: [
         { k: "Current", v: "Chief AI Architect · NTT DATA" },
         { k: "Based in", v: "Barcelona, ES" },
-        { k: "Focus", v: "Banking · Cloud · Governance · GenAI" },
+        { k: "Focus", v: "Enterprise Data & AI · Cloud · Governance · GenAI" },
         { k: "Teaching", v: "UPC · UB · USMP" },
         { k: "Languages", v: "English · Spanish" },
       ],
@@ -58,6 +58,45 @@ export const CONTENT = {
         "Alongside consulting and architecture leadership, an academic practice connects the work back to teaching and mentoring. Courses at Universidad San Martín de Porres, Universitat Politècnica de Catalunya and Universitat de Barcelona cover AI, Big Data, BI, data science, cloud ecosystems and responsible technology adoption.",
       ],
     },
+    help: {
+      number: "Nº 02 — Where I can help",
+      title: "Where I can help",
+      lead: "Architecture, strategy and enablement for enterprise Data & AI.",
+      closing:
+        "I work best where technology decisions need to be technically sound, business-aware and production-minded.",
+      items: [
+        {
+          title: "Enterprise GenAI Architecture",
+          body: "Designing governed GenAI architectures that connect LLMs, enterprise data, orchestration, guardrails and observability.",
+          tags: ["LLMs", "RAG", "Agents", "Guardrails"],
+        },
+        {
+          title: "Cloud Data Platforms",
+          body: "Modern data platforms across lakehouse, data mesh and cloud-native analytics patterns.",
+          tags: ["AWS", "Lakehouse", "Data Mesh", "Analytics"],
+        },
+        {
+          title: "AI Governance & Production Readiness",
+          body: "Turning AI ideas into secure, auditable and production-oriented enterprise systems.",
+          tags: ["Governance", "Security", "Auditability", "FinOps"],
+        },
+        {
+          title: "BI & Analytics Modernization",
+          body: "Modernizing BI ecosystems, semantic layers and analytics experiences with cloud and AI-assisted approaches.",
+          tags: ["BI", "QuickSight", "Semantic Layer", "Migration"],
+        },
+        {
+          title: "Executive & Technical Advisory",
+          body: "Helping leadership and technical teams align architecture decisions with business outcomes.",
+          tags: ["Strategy", "Architecture", "Stakeholders", "Delivery"],
+        },
+        {
+          title: "Teaching, Talks & Workshops",
+          body: "Designing practical learning experiences around Big Data, Cloud, AI, BI and emerging technologies.",
+          tags: ["Teaching", "Workshops", "Mentoring", "AI Literacy"],
+        },
+      ],
+    },
     tracks: {
       number: "Nº 03",
       title: "Two tracks. One architecture mindset.",
@@ -66,7 +105,7 @@ export const CONTENT = {
         eyebrow: "Professional Track",
         title: "Enterprise AI & Data Architecture",
         body: [
-        "Architecture leadership for banking, consulting, retail, automotive, energy and enterprise operations. The scope spans platform strategy, operating model, data governance, BI modernization, cloud architecture, GenAI adoption and delivery enablement.",
+        "Architecture leadership across complex enterprise, regulated and data-intensive environments. The scope spans platform strategy, operating model, data governance, BI modernization, cloud architecture, GenAI adoption and delivery enablement.",
           "The role is not only to design platforms, but to make them repeatable: standards, patterns, training, mentoring and alliances that allow organizations to scale Data & AI capability beyond a single project.",
         ],
         bullets: [
@@ -101,7 +140,7 @@ export const CONTENT = {
       title2: "Chief AI Architect",
       period: "Jan 2026 — Present",
       summary:
-        "Leading end-to-end architecture for Data, Analytics and GenAI initiatives in a banking environment, with accountability for secure, compliant, scalable and cost-aware solutions on AWS.",
+        "Leading end-to-end architecture for Data, Analytics and GenAI initiatives across regulated and data-intensive enterprise environments, with accountability for governance, scalability and production delivery on AWS.",
       points: [
         "Define reference architectures, standards and reusable blueprints that move proofs of concept toward production-grade delivery.",
         "Architect conversational AI and agentic workflows, including RAG over enterprise data, SQL interaction, tool use and orchestration patterns.",
@@ -207,8 +246,8 @@ export const CONTENT = {
       lead: "Three engagements, told briefly.",
       items: [
         {
-          tag: "Banking · 2026",
-          title: "GenAI architecture for a regulated banking environment.",
+          tag: "Regulated enterprise · 2026",
+          title: "GenAI architecture for a regulated enterprise environment.",
           body: "Defined reusable blueprints for conversational AI and agentic workflows, connecting enterprise data, RAG, SQL interaction, orchestration and governance so experiments can move toward controlled production delivery.",
         },
         {
@@ -330,14 +369,14 @@ export const CONTENT = {
       name: "Jean Carlo Jesus Vallejos Pongo",
       role: "Chief AI & Data Architect",
       standfirst:
-        "Chief AI & Data Architect especializado en arquitectura empresarial de Datos, Analítica e IA Generativa para entornos bancarios sobre AWS, plataformas gobernadas, IA conversacional y flujos agentic.",
-      credibility: "AWS · GenAI · Banca · Arquitectura de Datos · Profesor",
+        "Chief AI & Data Architect especializado en arquitectura empresarial de Datos, Analítica e IA Generativa para entornos empresariales complejos, plataformas gobernadas, IA conversacional y flujos agentic.",
+      credibility: "AWS · GenAI · Datos e IA empresarial · Arquitectura · Profesor",
       imageAlt:
         "Jean Carlo Jesus Vallejos Pongo sentado en exteriores en Barcelona, presentado como perfil de arquitectura empresarial de IA y datos.",
       meta: [
         { k: "Actual", v: "Chief AI Architect · NTT DATA" },
         { k: "Base", v: "Barcelona, ES" },
-        { k: "Foco", v: "Banca · Cloud · Gobierno · GenAI" },
+        { k: "Foco", v: "Datos e IA empresarial · Cloud · Gobierno · GenAI" },
         { k: "Docencia", v: "UPC · UB · USMP" },
         { k: "Idiomas", v: "Inglés · Español" },
       ],
@@ -352,6 +391,45 @@ export const CONTENT = {
         "En paralelo, mantiene una práctica académica que conecta la experiencia de consultoría con la docencia y mentoría. En Universidad San Martín de Porres, Universitat Politècnica de Catalunya y Universitat de Barcelona enseña IA, Big Data, BI, ciencia de datos, ecosistemas cloud y adopción responsable de tecnología.",
       ],
     },
+    help: {
+      number: "Nº 02 — Dónde puedo aportar valor",
+      title: "Dónde puedo aportar valor",
+      lead: "Arquitectura, estrategia y enablement para Datos e IA empresarial.",
+      closing:
+        "Aporto más valor donde las decisiones tecnológicas necesitan ser técnicamente sólidas, conscientes del negocio y orientadas a producción.",
+      items: [
+        {
+          title: "Arquitectura GenAI empresarial",
+          body: "Diseño de arquitecturas GenAI gobernadas que conectan LLMs, datos empresariales, orquestación, guardrails y observabilidad.",
+          tags: ["LLMs", "RAG", "Agentes", "Guardrails"],
+        },
+        {
+          title: "Plataformas Cloud Data",
+          body: "Plataformas modernas de datos basadas en lakehouse, data mesh y patrones cloud-native de analítica.",
+          tags: ["AWS", "Lakehouse", "Data Mesh", "Analítica"],
+        },
+        {
+          title: "Gobierno de IA & paso a producción",
+          body: "Conversión de ideas de IA en sistemas empresariales seguros, auditables y orientados a producción.",
+          tags: ["Gobierno", "Seguridad", "Auditabilidad", "FinOps"],
+        },
+        {
+          title: "Modernización BI & Analítica",
+          body: "Modernización de ecosistemas BI, capas semánticas y experiencias analíticas con enfoques cloud y asistidos por IA.",
+          tags: ["BI", "QuickSight", "Capa Semántica", "Migración"],
+        },
+        {
+          title: "Advisory ejecutivo & técnico",
+          body: "Acompañamiento a líderes y equipos técnicos para alinear decisiones de arquitectura con resultados de negocio.",
+          tags: ["Estrategia", "Arquitectura", "Stakeholders", "Delivery"],
+        },
+        {
+          title: "Docencia, charlas & workshops",
+          body: "Diseño de experiencias formativas prácticas sobre Big Data, Cloud, IA, BI y tecnologías emergentes.",
+          tags: ["Docencia", "Workshops", "Mentoría", "AI Literacy"],
+        },
+      ],
+    },
     tracks: {
       number: "Nº 03",
       title: "Dos perfiles. Una misma mentalidad arquitectónica.",
@@ -360,7 +438,7 @@ export const CONTENT = {
         eyebrow: "Perfil Profesional",
         title: "Arquitectura empresarial de Datos e IA",
         body: [
-          "Liderazgo de arquitectura para banca, consultoría, retail, automoción, energía y operaciones empresariales. El alcance cubre estrategia de plataforma, modelo operativo, gobierno del dato, modernización BI, arquitectura cloud, adopción GenAI y habilitación de delivery.",
+          "Liderazgo de arquitectura en entornos empresariales complejos, regulados e intensivos en datos. El alcance cubre estrategia de plataforma, modelo operativo, gobierno del dato, modernización BI, arquitectura cloud, adopción GenAI y habilitación de delivery.",
           "El rol no consiste solo en diseñar plataformas, sino en hacerlas repetibles: estándares, patrones, formación, mentoría y alianzas que permiten escalar la capacidad de Data & AI más allá de un proyecto aislado.",
         ],
         bullets: [
@@ -395,7 +473,7 @@ export const CONTENT = {
       title2: "Chief AI Architect",
       period: "Ene 2026 — Presente",
       summary:
-        "Lidera la arquitectura end-to-end de iniciativas de Datos, Analítica e IA Generativa en un entorno bancario, con foco en soluciones seguras, conformes, escalables y eficientes en coste sobre AWS.",
+        "Lidera la arquitectura end-to-end de iniciativas de Datos, Analítica e IA Generativa en entornos regulados e intensivos en datos, con foco en gobierno, escalabilidad y paso a producción sobre AWS.",
       points: [
         "Define arquitecturas de referencia, estándares y blueprints reutilizables para llevar PoCs hacia entregas productivas.",
         "Arquitecta IA conversacional y flujos agentic, incluyendo RAG sobre datos empresariales, interacción SQL, tool use y patrones de orquestación.",
@@ -501,8 +579,8 @@ export const CONTENT = {
       lead: "Tres compromisos, contados de forma breve.",
       items: [
         {
-          tag: "Banca · 2026",
-          title: "Arquitectura GenAI para un entorno bancario regulado.",
+          tag: "Enterprise regulado · 2026",
+          title: "Arquitectura GenAI para un entorno empresarial regulado.",
           body: "Definición de blueprints reutilizables para IA conversacional y flujos agentic, conectando datos empresariales, RAG, interacción SQL, orquestación y gobierno para mover experimentos hacia producción controlada.",
         },
         {

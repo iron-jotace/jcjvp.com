@@ -7,6 +7,7 @@ import {
   EducationSection,
   ExperienceSection,
   Footer,
+  HelpSection,
   Hero,
   Masthead,
   ProfileSection,
@@ -31,6 +32,7 @@ const App = () => {
       <main className="ed-main">
         <Hero content={content} />
         <ProfileSection content={content} />
+        <HelpSection content={content} />
         <TracksSection content={content} />
         <RoleSection content={content} />
         <ExperienceSection content={content} />

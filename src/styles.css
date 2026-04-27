@@ -397,6 +397,83 @@ img { display: block; max-width: 100%; }
   text-wrap: pretty;
 }
 
+/* ─── Where I can help ──────────────────────────────────── */
+
+.ed-help {
+  width: 100%;
+}
+.ed-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px) clamp(24px, 3vw, 44px);
+}
+.ed-help-item {
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+  min-width: 0;
+}
+.ed-help-num {
+  font-size: 10px;
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+.ed-help-title {
+  font-size: clamp(20px, 1.8vw, 25px);
+  line-height: 1.18;
+  letter-spacing: -0.006em;
+  color: var(--paper);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+.ed-help-body {
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--paper-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+.ed-help-tags {
+  list-style: none;
+  padding: 14px 0 0;
+  margin: 18px 0 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.ed-help-tags li {
+  font-size: 9.5px;
+  letter-spacing: 0.055em;
+  color: var(--muted);
+  text-transform: none;
+}
+.ed-help-tags li:not(:last-child)::after {
+  content: "·";
+  margin-left: 12px;
+  color: var(--muted-2);
+}
+.ed-help-closing {
+  margin: clamp(44px, 5vw, 64px) 0 0;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+  max-width: 58ch;
+  font-size: clamp(20px, 2.1vw, 26px);
+  line-height: 1.45;
+  color: var(--paper);
+  text-wrap: pretty;
+}
+
+@media (max-width: 980px) {
+  .ed-help-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .ed-help-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
 /* ─── Tracks (Nº 03) ─ the single Direction-B borrow. ────── */
 
 .ed-tracks {
