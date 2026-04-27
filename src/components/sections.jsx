@@ -121,7 +121,7 @@ export const Hero = ({ content }) => {
           </AnimatedRow>
         </Stagger>
 
-        <Reveal as="figure" className="ed-hero-figure" delay={0.1} y={0} scale={0.98}>
+        <Reveal as="figure" className="ed-hero-figure" delay={0.12} duration={0.8} y={10} scale={0.985}>
           <div className="ed-hero-photo">
             <img
               src="/assets/portrait-seated.jpg"

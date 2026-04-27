@@ -9,7 +9,7 @@ export const CONTENT = {
       issue: "Profile / Nº 01",
       date: "Barcelona — April 2026",
       kicker: "A Profile",
-      photoCaption: "Jean Carlo Jesus Vallejos Pongo — photographed in Barcelona, March 2026.",
+      photoCaption: "Jean Carlo Jesus Vallejos Pongo — photographed in Helsinki, Finland, October 2025.",
       langLabel: "Language",
       langOptions: [
         { code: "en", label: "EN" },
@@ -303,7 +303,7 @@ export const CONTENT = {
       issue: "Perfil / Nº 01",
       date: "Barcelona — Abril 2026",
       kicker: "Un Perfil",
-      photoCaption: "Jean Carlo Jesus Vallejos Pongo — fotografiado en Barcelona, marzo de 2026.",
+      photoCaption: "Jean Carlo Jesus Vallejos Pongo — fotografiado en Helsinki, Finlandia, octubre de 2025.",
       langLabel: "Idioma",
       langOptions: [
         { code: "en", label: "EN" },

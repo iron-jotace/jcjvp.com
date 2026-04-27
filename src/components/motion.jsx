@@ -23,6 +23,7 @@ export const Reveal = ({
   children,
   className,
   delay = 0,
+  duration,
   y = 10,
   scale,
   ...props
@@ -45,7 +46,7 @@ export const Reveal = ({
       initial={{ opacity: 0, y, ...(scale ? { scale } : {}) }}
       whileInView={{ opacity: 1, y: 0, ...(scale ? { scale: 1 } : {}) }}
       viewport={viewport}
-      transition={{ ...revealTransition, delay }}
+      transition={{ ...revealTransition, duration: duration ?? revealTransition.duration, delay }}
       {...props}
     >
       {children}
