@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   AnimatedRow,
   AnimatedSection,
@@ -7,7 +8,7 @@ import {
   Stagger,
 } from "./motion.jsx";
 
-const Section = ({ id, number, title, lead, children, screenLabel }) => (
+const Section = ({ id, number, title, lead, children, screenLabel, railAddon }) => (
   <AnimatedSection
     id={id}
     className="ed-section"
@@ -17,6 +18,7 @@ const Section = ({ id, number, title, lead, children, screenLabel }) => (
     <header className="ed-section-head">
       <AnimatedRow as="div" className="ed-section-meta">
         <span className="mono">{number}</span>
+        {railAddon}
       </AnimatedRow>
       <div className="ed-section-title-wrap">
         <AnimatedRow as="h2" className="ed-section-title">{title}</AnimatedRow>
@@ -88,6 +90,53 @@ export const Masthead = ({ lang, setLang, content }) => {
   );
 };
 
+const ServiceIndexReel = ({ activeIndex, items }) => {
+  const reduceMotion = useReducedMotion();
+  const total = items.length;
+  const current = String(activeIndex + 1).padStart(2, "0");
+
+  return (
+    <div
+      className="ed-service-index"
+      aria-label={`Active service ${current}`}
+      aria-live="polite"
+      style={{ "--active-service-index": activeIndex }}
+    >
+      <span className="ed-service-index-label mono">Index</span>
+      <div className="ed-service-index-window">
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.span
+            key={current}
+            className="ed-service-index-number"
+            aria-hidden="true"
+            initial={reduceMotion ? false : { y: 28, opacity: 0, filter: "blur(1px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            exit={reduceMotion ? undefined : { y: -28, opacity: 0, filter: "blur(1px)" }}
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+            }
+          >
+            {current}
+          </motion.span>
+        </AnimatePresence>
+      </div>
+      <motion.div
+        key={current}
+        className="ed-service-index-progress"
+        aria-hidden="true"
+        initial={reduceMotion ? false : { scaleX: 0 }}
+        animate={{ scaleX: reduceMotion ? 1 : 1 }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 6.5, ease: "linear" }}
+      />
+      <p className="ed-service-index-mobile mono">
+        {current} / {String(total).padStart(2, "0")}
+      </p>
+    </div>
+  );
+};
+
 // Hero — asymmetric editorial split, full-bleed photo on the right.
 export const Hero = ({ content }) => {
   const h = content.hero;
@@ -156,23 +205,70 @@ export const ProfileSection = ({ content }) => {
 
 export const HelpSection = ({ content }) => {
   const h = content.help;
+  const reduceMotion = useReducedMotion();
+  const [activeHelpIndex, setActiveHelpIndex] = useState(0);
+  const [isHelpPaused, setIsHelpPaused] = useState(false);
+
+  useEffect(() => {
+    if (reduceMotion || isHelpPaused || h.items.length < 2) {
+      return undefined;
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveHelpIndex((current) => (current + 1) % h.items.length);
+    }, 6500);
+
+    return () => window.clearInterval(timer);
+  }, [h.items.length, isHelpPaused, reduceMotion]);
+
   return (
-    <Section id="help" number={h.number} title={h.title} lead={h.lead} screenLabel="Where I can help">
+    <Section
+      id="help"
+      number={h.number}
+      title={h.title}
+      lead={h.lead}
+      screenLabel="Where I can help"
+      railAddon={<ServiceIndexReel activeIndex={activeHelpIndex} items={h.items} />}
+    >
       <Stagger className="ed-help" stagger={0.065}>
-        <div className="ed-help-grid">
-          {h.items.map((item, i) => (
-            <AnimatedRow as="article" key={item.title} className="ed-help-item">
-              <p className="ed-help-num mono">{String(i + 1).padStart(2, "0")}</p>
-              <h3 className="ed-help-title serif">{item.title}</h3>
-              <p className="ed-help-body">{item.body}</p>
-              <ul className="ed-help-tags" aria-label={item.title}>
-                {item.tags.map((tag) => (
+        <AnimatedRow
+          as="div"
+          className="ed-help-stage"
+          onMouseEnter={() => setIsHelpPaused(true)}
+          onMouseLeave={() => setIsHelpPaused(false)}
+          onFocus={() => setIsHelpPaused(true)}
+          onBlur={() => setIsHelpPaused(false)}
+          onClick={() => {
+            if (!reduceMotion) {
+              setActiveHelpIndex((current) => (current + 1) % h.items.length);
+            }
+          }}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.article
+              key={h.items[activeHelpIndex].title}
+              className="ed-help-item is-active"
+              tabIndex={0}
+              aria-live="polite"
+              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -14 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.78, ease: [0.16, 1, 0.3, 1] }
+              }
+            >
+              <h3 className="ed-help-title serif">{h.items[activeHelpIndex].title}</h3>
+              <p className="ed-help-body">{h.items[activeHelpIndex].body}</p>
+              <ul className="ed-help-tags" aria-label={h.items[activeHelpIndex].title}>
+                {h.items[activeHelpIndex].tags.map((tag) => (
                   <li key={tag} className="mono">{tag}</li>
                 ))}
               </ul>
-            </AnimatedRow>
-          ))}
-        </div>
+            </motion.article>
+          </AnimatePresence>
+        </AnimatedRow>
         <AnimatedRow as="p" className="ed-help-closing serif-italic">{h.closing}</AnimatedRow>
       </Stagger>
     </Section>
