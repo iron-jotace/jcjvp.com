@@ -59,7 +59,7 @@ export const CONTENT = {
       ],
     },
     help: {
-      number: "Nº 02 — Where I can help",
+      number: "Nº 03 — Where I can help",
       title: "Where I can help",
       lead: "Architecture, strategy and enablement for enterprise Data & AI.",
       closing:
@@ -98,7 +98,7 @@ export const CONTENT = {
       ],
     },
     tracks: {
-      number: "Nº 03",
+      number: "Nº 04",
       title: "Two tracks. One architecture mindset.",
       lead: "Enterprise practice and academic practice, held in one hand.",
       pro: {
@@ -133,7 +133,7 @@ export const CONTENT = {
         "The same judgment connects both tracks: how to make AI and data systems useful, governable and teachable enough to survive beyond the first demo.",
     },
     role: {
-      number: "Nº 04",
+      number: "Nº 05",
       title: "Current Role",
       lead: "Where the work happens today.",
       org: "NTT DATA — Barcelona, Spain",
@@ -149,7 +149,7 @@ export const CONTENT = {
       ],
     },
     experience: {
-      number: "Nº 05",
+      number: "Nº 06",
       title: "Selected Experience",
       lead: "A condensed timeline.",
       items: [
@@ -210,7 +210,7 @@ export const CONTENT = {
       ],
     },
     domains: {
-      number: "Nº 06",
+      number: "Nº 07",
       title: "Architecture Domains",
       lead: "The territory the practice covers.",
       items: [
@@ -241,7 +241,7 @@ export const CONTENT = {
       ],
     },
     stories: {
-      number: "Nº 07",
+      number: "Nº 08",
       title: "Selected Work",
       lead: "Three engagements, told briefly.",
       items: [
@@ -263,7 +263,7 @@ export const CONTENT = {
       ],
     },
     academic: {
-      number: "Nº 08",
+      number: "Nº 09",
       title: "Academic Profile",
       lead: "Teaching, mentoring, curriculum design.",
       listTitle: "Academic Roles",
@@ -279,7 +279,7 @@ export const CONTENT = {
       ],
     },
     education: {
-      number: "Nº 09",
+      number: "Nº 10",
       title: "Education",
       lead: "Executive, technical and international formation.",
       items: [
@@ -295,7 +295,7 @@ export const CONTENT = {
       ],
     },
     stack: {
-      number: "Nº 10",
+      number: "Nº 11",
       title: "Tech Stack",
       lead: "Tools the practice runs on, not a wishlist.",
       groups: [
@@ -308,7 +308,7 @@ export const CONTENT = {
       ],
     },
     contact: {
-      number: "Nº 11",
+      number: "Nº 12",
       title: "Contact",
       lead: "For enterprise AI architecture, Data & AI strategy, advisory, talks and academic collaboration.",
       imageAlt:
@@ -392,7 +392,7 @@ export const CONTENT = {
       ],
     },
     help: {
-      number: "Nº 02 — Dónde puedo aportar valor",
+      number: "Nº 03 — Dónde puedo aportar valor",
       title: "Dónde puedo aportar valor",
       lead: "Arquitectura, estrategia y enablement para Datos e IA empresarial.",
       closing:
@@ -431,7 +431,7 @@ export const CONTENT = {
       ],
     },
     tracks: {
-      number: "Nº 03",
+      number: "Nº 04",
       title: "Dos perfiles. Una misma mentalidad arquitectónica.",
       lead: "Práctica empresarial y práctica académica, sostenidas en una misma mano.",
       pro: {
@@ -466,7 +466,7 @@ export const CONTENT = {
         "El mismo criterio conecta ambos perfiles: hacer que los sistemas de IA y datos sean útiles, gobernables y suficientemente enseñables para sobrevivir más allá de la primera demo.",
     },
     role: {
-      number: "Nº 04",
+      number: "Nº 05",
       title: "Rol Actual",
       lead: "Dónde sucede hoy el trabajo.",
       org: "NTT DATA — Barcelona, España",
@@ -482,7 +482,7 @@ export const CONTENT = {
       ],
     },
     experience: {
-      number: "Nº 05",
+      number: "Nº 06",
       title: "Experiencia Seleccionada",
       lead: "Una línea de tiempo condensada.",
       items: [
@@ -543,7 +543,7 @@ export const CONTENT = {
       ],
     },
     domains: {
-      number: "Nº 06",
+      number: "Nº 07",
       title: "Dominios de Arquitectura",
       lead: "El territorio que cubre la práctica.",
       items: [
@@ -574,7 +574,7 @@ export const CONTENT = {
       ],
     },
     stories: {
-      number: "Nº 07",
+      number: "Nº 08",
       title: "Trabajo Seleccionado",
       lead: "Tres compromisos, contados de forma breve.",
       items: [
@@ -596,7 +596,7 @@ export const CONTENT = {
       ],
     },
     academic: {
-      number: "Nº 08",
+      number: "Nº 09",
       title: "Perfil Académico",
       lead: "Docencia, mentoría, diseño curricular.",
       listTitle: "Roles académicos",
@@ -612,7 +612,7 @@ export const CONTENT = {
       ],
     },
     education: {
-      number: "Nº 09",
+      number: "Nº 10",
       title: "Formación",
       lead: "Formación ejecutiva, técnica e internacional.",
       items: [
@@ -628,7 +628,7 @@ export const CONTENT = {
       ],
     },
     stack: {
-      number: "Nº 10",
+      number: "Nº 11",
       title: "Stack Técnico",
       lead: "Herramientas con las que opera la práctica, no una lista de deseos.",
       groups: [
@@ -641,7 +641,7 @@ export const CONTENT = {
       ],
     },
     contact: {
-      number: "Nº 11",
+      number: "Nº 12",
       title: "Contacto",
       lead: "Para arquitectura enterprise de IA, estrategia Data & AI, asesoría, ponencias y colaboración académica.",
       imageAlt:

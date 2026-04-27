@@ -90,10 +90,11 @@ export const Masthead = ({ lang, setLang, content }) => {
   );
 };
 
-const ServiceIndexReel = ({ activeIndex, items }) => {
+const ServiceIndexReel = ({ activeIndex, items, label }) => {
   const reduceMotion = useReducedMotion();
   const total = items.length;
   const current = String(activeIndex + 1).padStart(2, "0");
+  const count = `${current} / ${String(total).padStart(2, "0")}`;
 
   return (
     <div
@@ -102,7 +103,7 @@ const ServiceIndexReel = ({ activeIndex, items }) => {
       aria-live="polite"
       style={{ "--active-service-index": activeIndex }}
     >
-      <span className="ed-service-index-label mono">Index</span>
+      <span className="ed-service-index-label mono">{label}</span>
       <div className="ed-service-index-window">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
@@ -118,7 +119,7 @@ const ServiceIndexReel = ({ activeIndex, items }) => {
                 : { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
             }
           >
-            {current}
+            {count}
           </motion.span>
         </AnimatePresence>
       </div>
@@ -131,7 +132,7 @@ const ServiceIndexReel = ({ activeIndex, items }) => {
         transition={reduceMotion ? { duration: 0 } : { duration: 6.5, ease: "linear" }}
       />
       <p className="ed-service-index-mobile mono">
-        {current} / {String(total).padStart(2, "0")}
+        {count}
       </p>
     </div>
   );
@@ -208,6 +209,7 @@ export const HelpSection = ({ content }) => {
   const reduceMotion = useReducedMotion();
   const [activeHelpIndex, setActiveHelpIndex] = useState(0);
   const [isHelpPaused, setIsHelpPaused] = useState(false);
+  const capabilityLabel = h.title.toLowerCase().includes("dónde") ? "Capacidad" : "Capability";
 
   useEffect(() => {
     if (reduceMotion || isHelpPaused || h.items.length < 2) {
@@ -228,7 +230,13 @@ export const HelpSection = ({ content }) => {
       title={h.title}
       lead={h.lead}
       screenLabel="Where I can help"
-      railAddon={<ServiceIndexReel activeIndex={activeHelpIndex} items={h.items} />}
+      railAddon={
+        <ServiceIndexReel
+          activeIndex={activeHelpIndex}
+          items={h.items}
+          label={capabilityLabel}
+        />
+      }
     >
       <Stagger className="ed-help" stagger={0.065}>
         <AnimatedRow

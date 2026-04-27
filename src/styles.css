@@ -432,9 +432,9 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: flex-start;
   font-family: var(--mono);
-  font-size: 34px;
+  font-size: 22px;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   color: var(--paper);
   font-variant-numeric: tabular-nums;
   will-change: transform, opacity, filter;
@@ -536,6 +536,15 @@ img { display: block; max-width: 100%; }
   line-height: 1.45;
   color: var(--paper);
   text-wrap: pretty;
+}
+
+@media (min-width: 761px) {
+  #help .ed-section-head {
+    margin-bottom: 0;
+  }
+  #help .ed-section-body {
+    margin-top: clamp(-112px, -7vw, -84px);
+  }
 }
 
 @media (max-width: 640px) {
