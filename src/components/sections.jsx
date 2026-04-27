@@ -1,23 +1,30 @@
 import { Fragment, useEffect, useState } from "react";
+import {
+  AnimatedRow,
+  AnimatedSection,
+  MotionRule,
+  Reveal,
+  Stagger,
+} from "./motion.jsx";
 
 const Section = ({ id, number, title, lead, children, screenLabel }) => (
-  <section
+  <AnimatedSection
     id={id}
     className="ed-section"
     data-screen-label={screenLabel || `${number} ${title}`}
   >
-    <div className="ed-section-rule" aria-hidden="true" />
+    <MotionRule className="ed-section-rule" />
     <header className="ed-section-head">
-      <div className="ed-section-meta">
+      <AnimatedRow as="div" className="ed-section-meta">
         <span className="mono">{number}</span>
-      </div>
+      </AnimatedRow>
       <div className="ed-section-title-wrap">
-        <h2 className="ed-section-title">{title}</h2>
-        {lead ? <p className="ed-section-lead">{lead}</p> : null}
+        <AnimatedRow as="h2" className="ed-section-title">{title}</AnimatedRow>
+        {lead ? <AnimatedRow as="p" className="ed-section-lead">{lead}</AnimatedRow> : null}
       </div>
     </header>
-    <div className="ed-section-body">{children}</div>
-  </section>
+    <AnimatedRow as="div" className="ed-section-body">{children}</AnimatedRow>
+  </AnimatedSection>
 );
 
 // EN / ES toggle, masthead-style.
@@ -50,7 +57,7 @@ export const Masthead = ({ lang, setLang, content }) => {
   }, []);
 
   return (
-    <header className={`ed-mast ${scrolled ? "is-scrolled" : ""}`}>
+    <Reveal as="header" className={`ed-mast ${scrolled ? "is-scrolled" : ""}`} y={0}>
       <div className="ed-mast-inner">
         <a href="#top" className="ed-mast-mark" aria-label={content.meta.homeLabel}>
           <span className="ed-mast-monogram serif">{content.meta.wordmark}</span>
@@ -77,7 +84,7 @@ export const Masthead = ({ lang, setLang, content }) => {
           </a>
         </div>
       </div>
-    </header>
+    </Reveal>
   );
 };
 
@@ -86,35 +93,35 @@ export const Hero = ({ content }) => {
   const h = content.hero;
   return (
     <section className="ed-hero" id="top" data-screen-label="01 Hero">
-      <div className="ed-hero-strip">
+      <Reveal className="ed-hero-strip" y={6}>
         <span className="mono">{h.kicker}</span>
         <span className="ed-strip-sep" aria-hidden="true">/</span>
         <span className="mono">{h.location}</span>
         <span className="ed-strip-sep" aria-hidden="true">/</span>
         <span className="mono">{content.meta.date}</span>
-      </div>
+      </Reveal>
 
       <div className="ed-hero-grid">
-        <div className="ed-hero-text">
-          <p className="ed-hero-eyebrow mono">{content.meta.kicker}</p>
-          <div className="ed-hero-identity">
+        <Stagger className="ed-hero-text" stagger={0.07} delay={0.04}>
+          <AnimatedRow as="p" className="ed-hero-eyebrow mono">{content.meta.kicker}</AnimatedRow>
+          <AnimatedRow as="div" className="ed-hero-identity">
             <h1 className="ed-hero-name">{h.name}</h1>
             <p className="ed-hero-role serif-italic">{h.role}</p>
-          </div>
-          <p className="ed-hero-headline serif">{h.headline}</p>
-          <p className="ed-hero-standfirst">{h.standfirst}</p>
-          <p className="ed-hero-credibility mono">{h.credibility}</p>
-          <div className="ed-hero-meta">
+          </AnimatedRow>
+          <AnimatedRow as="p" className="ed-hero-headline serif">{h.headline}</AnimatedRow>
+          <AnimatedRow as="p" className="ed-hero-standfirst">{h.standfirst}</AnimatedRow>
+          <AnimatedRow as="p" className="ed-hero-credibility mono">{h.credibility}</AnimatedRow>
+          <AnimatedRow as="div" className="ed-hero-meta">
             {h.meta.map((m) => (
               <div key={m.k} className="ed-hero-meta-row">
                 <span className="ed-hero-meta-k mono">{m.k}</span>
                 <span className="ed-hero-meta-v">{m.v}</span>
               </div>
             ))}
-          </div>
-        </div>
+          </AnimatedRow>
+        </Stagger>
 
-        <figure className="ed-hero-figure">
+        <Reveal as="figure" className="ed-hero-figure" delay={0.1} y={0} scale={0.98}>
           <div className="ed-hero-photo">
             <img
               src="/assets/portrait-seated.jpg"
@@ -126,7 +133,7 @@ export const Hero = ({ content }) => {
           <figcaption className="ed-hero-caption mono">
             {content.meta.photoCaption}
           </figcaption>
-        </figure>
+        </Reveal>
       </div>
     </section>
   );
@@ -136,13 +143,13 @@ export const ProfileSection = ({ content }) => {
   const p = content.profile;
   return (
     <Section id="profile" number={p.number} title={p.title} lead={p.lead} screenLabel="02 Profile">
-      <div className="ed-profile-body">
+      <Stagger className="ed-profile-body" stagger={0.075}>
         {p.body.map((para, i) => (
-          <p key={i} className={i === 0 ? "ed-profile-lead" : "ed-profile-para"}>
+          <AnimatedRow as="p" key={i} className={i === 0 ? "ed-profile-lead" : "ed-profile-para"}>
             {para}
-          </p>
+          </AnimatedRow>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 };
@@ -153,7 +160,8 @@ export const TracksSection = ({ content }) => {
   return (
     <Section id="tracks" number={t.number} title={t.title} lead={t.lead} screenLabel="03 Two Tracks">
       <div className="ed-tracks">
-        <div className="ed-track ed-track-pro">
+        <Reveal className="ed-track ed-track-pro">
+        <Stagger stagger={0.065}>
           <div className="ed-track-eyebrow mono">{t.pro.eyebrow}</div>
           <h3 className="ed-track-title serif">{t.pro.title}</h3>
           <div className="ed-track-body">
@@ -163,17 +171,19 @@ export const TracksSection = ({ content }) => {
           </div>
           <ul className="ed-track-bullets">
             {t.pro.bullets.map((b) => (
-              <li key={b}>
+              <AnimatedRow key={b}>
                 <span className="ed-track-bullet-mark" aria-hidden="true" />
                 <span>{b}</span>
-              </li>
+              </AnimatedRow>
             ))}
           </ul>
-        </div>
+        </Stagger>
+        </Reveal>
 
-        <div className="ed-track-divider" aria-hidden="true" />
+        <MotionRule className="ed-track-divider" direction="y" delay={0.08} />
 
-        <div className="ed-track ed-track-aca">
+        <Reveal className="ed-track ed-track-aca">
+        <Stagger stagger={0.065}>
           <div className="ed-track-eyebrow mono">{t.aca.eyebrow}</div>
           <h3 className="ed-track-title serif">{t.aca.title}</h3>
           <div className="ed-track-body">
@@ -183,16 +193,17 @@ export const TracksSection = ({ content }) => {
           </div>
           <ul className="ed-track-bullets">
             {t.aca.bullets.map((b) => (
-              <li key={b}>
+              <AnimatedRow key={b}>
                 <span className="ed-track-bullet-mark" aria-hidden="true" />
                 <span>{b}</span>
-              </li>
+              </AnimatedRow>
             ))}
           </ul>
-        </div>
+        </Stagger>
+        </Reveal>
       </div>
 
-      <p className="ed-tracks-convergence serif-italic">{t.convergence}</p>
+      <Reveal as="p" className="ed-tracks-convergence serif-italic">{t.convergence}</Reveal>
     </Section>
   );
 };
@@ -201,22 +212,22 @@ export const RoleSection = ({ content }) => {
   const r = content.role;
   return (
     <Section id="role" number={r.number} title={r.title} lead={r.lead} screenLabel="04 Current Role">
-      <div className="ed-role">
-        <div className="ed-role-head">
+      <Stagger className="ed-role" stagger={0.07}>
+        <AnimatedRow as="div" className="ed-role-head">
           <p className="ed-role-org">{r.org}</p>
           <p className="ed-role-title serif-italic">{r.title2}</p>
           <p className="ed-role-period mono">{r.period}</p>
-        </div>
-        <p className="ed-role-summary">{r.summary}</p>
+        </AnimatedRow>
+        <AnimatedRow as="p" className="ed-role-summary">{r.summary}</AnimatedRow>
         <ul className="ed-role-points">
           {r.points.map((p, i) => (
-            <li key={i}>
+            <AnimatedRow key={i}>
               <span className="ed-role-point-num mono">{String(i + 1).padStart(2, "0")}</span>
               <span>{p}</span>
-            </li>
+            </AnimatedRow>
           ))}
         </ul>
-      </div>
+      </Stagger>
     </Section>
   );
 };
@@ -225,18 +236,18 @@ export const ExperienceSection = ({ content }) => {
   const e = content.experience;
   return (
     <Section id="experience" number={e.number} title={e.title} lead={e.lead} screenLabel="05 Experience">
-      <ol className="ed-exp">
+      <Stagger as="ol" className="ed-exp" stagger={0.065}>
         {e.items.map((it, i) => (
-          <li key={i} className="ed-exp-row">
+          <AnimatedRow key={i} className="ed-exp-row">
             <div className="ed-exp-year mono">{it.year}</div>
             <div className="ed-exp-body">
               <p className="ed-exp-org">{it.org}</p>
               <p className="ed-exp-role serif-italic">{it.role}</p>
               <p className="ed-exp-note">{it.note}</p>
             </div>
-          </li>
+          </AnimatedRow>
         ))}
-      </ol>
+      </Stagger>
     </Section>
   );
 };
@@ -245,17 +256,17 @@ export const DomainsSection = ({ content }) => {
   const d = content.domains;
   return (
     <Section id="domains" number={d.number} title={d.title} lead={d.lead} screenLabel="06 Domains">
-      <dl className="ed-domains">
+      <Stagger as="dl" className="ed-domains" stagger={0.065}>
         {d.items.map((it, i) => (
-          <div key={i} className="ed-domain-row">
+          <AnimatedRow as="div" key={i} className="ed-domain-row">
             <dt className="ed-domain-k">
               <span className="ed-domain-num mono">{String(i + 1).padStart(2, "0")}</span>
               <span className="serif">{it.k}</span>
             </dt>
             <dd className="ed-domain-v">{it.v}</dd>
-          </div>
+          </AnimatedRow>
         ))}
-      </dl>
+      </Stagger>
     </Section>
   );
 };
@@ -264,15 +275,15 @@ export const StoriesSection = ({ content }) => {
   const s = content.stories;
   return (
     <Section id="stories" number={s.number} title={s.title} lead={s.lead} screenLabel="07 Selected Work">
-      <div className="ed-stories">
+      <Stagger className="ed-stories" stagger={0.08}>
         {s.items.map((it, i) => (
-          <article key={i} className="ed-story">
+          <AnimatedRow as="article" key={i} className="ed-story">
             <p className="ed-story-tag mono">{it.tag}</p>
             <h3 className="ed-story-title serif">{it.title}</h3>
             <p className="ed-story-body">{it.body}</p>
-          </article>
+          </AnimatedRow>
         ))}
-      </div>
+      </Stagger>
     </Section>
   );
 };
@@ -282,24 +293,24 @@ export const AcademicSection = ({ content }) => {
   return (
     <Section id="academic" number={a.number} title={a.title} lead={a.lead} screenLabel="08 Academic">
       <div className="ed-academic">
-        <div className="ed-academic-prose">
+        <Stagger className="ed-academic-prose" stagger={0.07}>
           {a.body.map((p, i) => (
-            <p key={i} className={i === 0 ? "ed-academic-lead" : ""}>
+            <AnimatedRow as="p" key={i} className={i === 0 ? "ed-academic-lead" : ""}>
               {p}
-            </p>
+            </AnimatedRow>
           ))}
-        </div>
-        <aside className="ed-academic-list" aria-label={a.listTitle}>
+        </Stagger>
+        <Reveal as="aside" className="ed-academic-list" aria-label={a.listTitle}>
           <p className="ed-academic-list-title mono">{a.listTitle}</p>
-          <ul>
+          <Stagger as="ul" stagger={0.055}>
             {a.reading.map((r, i) => (
-              <li key={i}>
+              <AnimatedRow key={i}>
                 <span className="mono ed-academic-y">{r.y}</span>
                 <span className="ed-academic-t">{r.t}</span>
-              </li>
+              </AnimatedRow>
             ))}
-          </ul>
-        </aside>
+          </Stagger>
+        </Reveal>
       </div>
     </Section>
   );
@@ -309,15 +320,15 @@ export const EducationSection = ({ content }) => {
   const e = content.education;
   return (
     <Section id="education" number={e.number} title={e.title} lead={e.lead} screenLabel="09 Education">
-      <ul className="ed-edu">
+      <Stagger as="ul" className="ed-edu" stagger={0.065}>
         {e.items.map((it, i) => (
-          <li key={i} className="ed-edu-row">
+          <AnimatedRow key={i} className="ed-edu-row">
             <span className="ed-edu-y mono">{it.y}</span>
             <span className="ed-edu-t serif">{it.t}</span>
             <span className="ed-edu-o">{it.o}</span>
-          </li>
+          </AnimatedRow>
         ))}
-      </ul>
+      </Stagger>
     </Section>
   );
 };
@@ -326,14 +337,14 @@ export const StackSection = ({ content }) => {
   const s = content.stack;
   return (
     <Section id="stack" number={s.number} title={s.title} lead={s.lead} screenLabel="10 Stack">
-      <dl className="ed-stack">
+      <Stagger as="dl" className="ed-stack" stagger={0.055}>
         {s.groups.map((g, i) => (
-          <div key={i} className="ed-stack-row">
+          <AnimatedRow as="div" key={i} className="ed-stack-row">
             <dt className="ed-stack-k mono">{g.k}</dt>
             <dd className="ed-stack-v">{g.v}</dd>
-          </div>
+          </AnimatedRow>
         ))}
-      </dl>
+      </Stagger>
     </Section>
   );
 };
@@ -342,27 +353,27 @@ export const ContactSection = ({ content }) => {
   const c = content.contact;
   return (
     <Section id="contact" number={c.number} title={c.title} lead={c.lead} screenLabel="11 Contact">
-      <div className="ed-contact">
-        <div className="ed-contact-identity">
+      <Stagger className="ed-contact" stagger={0.075}>
+        <AnimatedRow as="div" className="ed-contact-identity">
           <div className="ed-contact-id">
             <p className="ed-contact-name serif">{c.card.name}</p>
             <p className="ed-contact-role serif-italic">{c.card.role}</p>
             <p className="ed-contact-loc mono">{c.card.location}</p>
           </div>
-        </div>
-        <ul className="ed-contact-lines">
+        </AnimatedRow>
+        <Stagger as="ul" className="ed-contact-lines" stagger={0.055}>
           {c.lines.map((l, i) => (
-            <li key={i} className="ed-contact-line">
+            <AnimatedRow key={i} className="ed-contact-line">
               <span className="ed-contact-k mono">{l.k}</span>
               <a className="ed-contact-v" href={l.href}>
                 {l.v}
                 <span className="ed-contact-arrow" aria-hidden="true">↗</span>
               </a>
-            </li>
+            </AnimatedRow>
           ))}
-        </ul>
-        <p className="ed-contact-note serif-italic">{c.note}</p>
-      </div>
+        </Stagger>
+        <AnimatedRow as="p" className="ed-contact-note serif-italic">{c.note}</AnimatedRow>
+      </Stagger>
     </Section>
   );
 };
