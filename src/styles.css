@@ -212,8 +212,8 @@ img { display: block; max-width: 100%; }
   font-size: clamp(25px, 2.6vw, 36px);
   line-height: 1.18;
   letter-spacing: -0.012em;
-  margin: 0 0 24px;
-  color: var(--paper-2);
+  margin: 0 0 28px;
+  color: color-mix(in oklab, var(--paper-2) 88%, var(--muted));
   text-wrap: balance;
   font-weight: 400;
 }
@@ -258,35 +258,41 @@ img { display: block; max-width: 100%; }
   background: var(--ink-1);
   overflow: hidden;
   box-shadow:
-    0 30px 80px -48px color-mix(in oklab, var(--ink-0) 78%, transparent),
-    0 1px 0 color-mix(in oklab, var(--paper) 5%, transparent) inset;
+    0 24px 62px -50px color-mix(in oklab, var(--ink-0) 82%, transparent),
+    0 1px 0 color-mix(in oklab, var(--paper) 4%, transparent) inset;
   transition: transform 200ms ease;
 }
 .ed-hero-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 50% 30%;
-  filter: saturate(0.92) contrast(1.02);
+  object-position: 50% 26%;
+  transform: scale(1.018);
+  filter: brightness(0.95) contrast(1.07) saturate(0.88);
 }
 .ed-hero-photo-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(13,16,20,0) 60%, rgba(13,16,20,0.38) 100%),
-    linear-gradient(90deg, rgba(13,16,20,0.12) 0%, rgba(13,16,20,0) 35%);
+    linear-gradient(
+      180deg,
+      transparent 58%,
+      color-mix(in oklab, var(--ink-0) 28%, transparent) 100%
+    );
   pointer-events: none;
 }
 .ed-hero-caption {
-  margin-top: 14px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
   font-size: 10px;
   color: var(--muted);
   text-transform: none;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.055em;
   font-style: normal;
 }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 901px) {
   .ed-hero-figure:hover .ed-hero-photo {
-    transform: scale(1.01);
+    transform: scale(1.004);
   }
 }
 
@@ -397,6 +403,49 @@ img { display: block; max-width: 100%; }
   color: var(--paper-2);
   margin: 0 0 18px;
   text-wrap: pretty;
+}
+
+/* ─── Architecture Signature (Nº 03) ─────────────────────── */
+
+.ed-signature {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ed-signature-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 36px);
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+}
+.ed-signature-row:last-child { border-bottom: 1px solid var(--rule); }
+.ed-signature-num {
+  font-size: 11px;
+  color: var(--muted);
+}
+.ed-signature-title {
+  margin: 0 0 6px;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.15;
+  color: var(--paper);
+  letter-spacing: -0.006em;
+}
+.ed-signature-thesis {
+  margin: 0;
+  max-width: 58ch;
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--paper-2);
+  text-wrap: pretty;
+}
+
+@media (max-width: 600px) {
+  .ed-signature-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 
 /* ─── Where I can help ──────────────────────────────────── */

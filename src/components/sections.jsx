@@ -204,6 +204,25 @@ export const ProfileSection = ({ content }) => {
   );
 };
 
+export const ArchitectureSignatureSection = ({ content }) => {
+  const s = content.architectureSignature;
+  return (
+    <Section id="architecture-signature" number={s.number} title={s.title} lead={s.lead} screenLabel="03 Architecture Signature">
+      <Stagger as="ol" className="ed-signature" stagger={0.065}>
+        {s.items.map((it) => (
+          <AnimatedRow key={it.number} className="ed-signature-row">
+            <span className="ed-signature-num mono">{it.number}</span>
+            <div className="ed-signature-body">
+              <h3 className="ed-signature-title serif">{it.title}</h3>
+              <p className="ed-signature-thesis">{it.thesis}</p>
+            </div>
+          </AnimatedRow>
+        ))}
+      </Stagger>
+    </Section>
+  );
+};
+
 export const HelpSection = ({ content }) => {
   const h = content.help;
   const reduceMotion = useReducedMotion();

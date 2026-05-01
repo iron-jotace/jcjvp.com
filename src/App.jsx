@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CONTENT } from "./content.js";
 import {
   AcademicSection,
+  ArchitectureSignatureSection,
   ContactSection,
   DomainsSection,
   EducationSection,
@@ -32,6 +33,7 @@ const App = () => {
       <main className="ed-main">
         <Hero content={content} />
         <ProfileSection content={content} />
+        <ArchitectureSignatureSection content={content} />
         <HelpSection content={content} />
         <TracksSection content={content} />
         <RoleSection content={content} />

@@ -58,10 +58,37 @@ export const CONTENT = {
         "Alongside consulting and architecture leadership, an academic practice connects the work back to teaching and mentoring. Courses at Universidad San Martín de Porres, Universitat Politècnica de Catalunya and Universitat de Barcelona cover AI, Big Data, BI, data science, cloud ecosystems and responsible technology adoption.",
       ],
     },
-    help: {
+    architectureSignature: {
       number: "Nº 03",
+      title: "The Architecture Signature",
+      lead: "Turning executive intent into systems that can be governed, scaled and run.",
+      items: [
+        {
+          number: "01",
+          title: "Strategy Into Systems",
+          thesis: "Ambiguous intent translated into executable architecture.",
+        },
+        {
+          number: "02",
+          title: "Governance By Design",
+          thesis: "Control, lineage and policy built in from the first decision.",
+        },
+        {
+          number: "03",
+          title: "Reusable Architecture",
+          thesis: "Patterns built to travel across teams, not stop at one solution.",
+        },
+        {
+          number: "04",
+          title: "Production Discipline",
+          thesis: "Systems designed to run, not just to prove a point.",
+        },
+      ],
+    },
+    help: {
+      number: "Nº 04",
       title: "Where I can help",
-      lead: "Architecture, strategy and enablement for enterprise Data & AI.",
+      lead: "Where the architecture signature turns into decisions, systems and delivery.",
       closing:
         "I work best where technology decisions need to be technically sound, business-aware and production-minded.",
       items: [
@@ -98,7 +125,7 @@ export const CONTENT = {
       ],
     },
     tracks: {
-      number: "Nº 04",
+      number: "Nº 05",
       title: "Two tracks. One architecture mindset.",
       lead: "Enterprise practice and academic practice, held in one hand.",
       pro: {
@@ -133,7 +160,7 @@ export const CONTENT = {
         "The same judgment connects both tracks: how to make AI and data systems useful, governable and teachable enough to survive beyond the first demo.",
     },
     role: {
-      number: "Nº 05",
+      number: "Nº 06",
       title: "Current Role",
       lead: "Where the work happens today.",
       org: "NTT DATA — Barcelona, Spain",
@@ -149,7 +176,7 @@ export const CONTENT = {
       ],
     },
     experience: {
-      number: "Nº 06",
+      number: "Nº 07",
       title: "Selected Experience",
       lead: "A condensed timeline.",
       items: [
@@ -210,7 +237,7 @@ export const CONTENT = {
       ],
     },
     domains: {
-      number: "Nº 07",
+      number: "Nº 08",
       title: "Architecture Domains",
       lead: "The territory the practice covers.",
       items: [
@@ -241,7 +268,7 @@ export const CONTENT = {
       ],
     },
     stories: {
-      number: "Nº 08",
+      number: "Nº 09",
       title: "Selected Work",
       lead: "Three engagements, told briefly.",
       items: [
@@ -263,7 +290,7 @@ export const CONTENT = {
       ],
     },
     academic: {
-      number: "Nº 09",
+      number: "Nº 10",
       title: "Academic Profile",
       lead: "Teaching, mentoring, curriculum design.",
       listTitle: "Academic Roles",
@@ -279,7 +306,7 @@ export const CONTENT = {
       ],
     },
     education: {
-      number: "Nº 10",
+      number: "Nº 11",
       title: "Education",
       lead: "Executive, technical and international formation.",
       items: [
@@ -295,7 +322,7 @@ export const CONTENT = {
       ],
     },
     stack: {
-      number: "Nº 11",
+      number: "Nº 12",
       title: "Tech Stack",
       lead: "Tools the practice runs on, not a wishlist.",
       groups: [
@@ -308,7 +335,7 @@ export const CONTENT = {
       ],
     },
     contact: {
-      number: "Nº 12",
+      number: "Nº 13",
       title: "Contact",
       lead: "For enterprise AI architecture, Data & AI strategy, advisory, talks and academic collaboration.",
       imageAlt:
@@ -391,10 +418,37 @@ export const CONTENT = {
         "En paralelo, mantiene una práctica académica que conecta la experiencia de consultoría con la docencia y mentoría. En Universidad San Martín de Porres, Universitat Politècnica de Catalunya y Universitat de Barcelona enseña IA, Big Data, BI, ciencia de datos, ecosistemas cloud y adopción responsable de tecnología.",
       ],
     },
-    help: {
+    architectureSignature: {
       number: "Nº 03",
+      title: "La Firma de Arquitectura",
+      lead: "Convertir intención ejecutiva en sistemas que puedan gobernarse, escalar y operar.",
+      items: [
+        {
+          number: "01",
+          title: "Estrategia en Sistemas",
+          thesis: "Intención ambigua traducida en arquitectura ejecutable.",
+        },
+        {
+          number: "02",
+          title: "Gobierno Desde el Diseño",
+          thesis: "Control, linaje y política incorporados desde la primera decisión.",
+        },
+        {
+          number: "03",
+          title: "Arquitectura Reutilizable",
+          thesis: "Patrones hechos para cruzar equipos, no quedarse en una solución.",
+        },
+        {
+          number: "04",
+          title: "Disciplina de Producción",
+          thesis: "Sistemas diseñados para operar, no solo para demostrar.",
+        },
+      ],
+    },
+    help: {
+      number: "Nº 04",
       title: "Dónde puedo aportar valor",
-      lead: "Arquitectura, estrategia y enablement para Datos e IA empresarial.",
+      lead: "Donde la firma de arquitectura se convierte en decisiones, sistemas y delivery.",
       closing:
         "Aporto más valor donde las decisiones tecnológicas necesitan ser técnicamente sólidas, conscientes del negocio y orientadas a producción.",
       items: [
@@ -431,7 +485,7 @@ export const CONTENT = {
       ],
     },
     tracks: {
-      number: "Nº 04",
+      number: "Nº 05",
       title: "Dos perfiles. Una misma mentalidad arquitectónica.",
       lead: "Práctica empresarial y práctica académica, sostenidas en una misma mano.",
       pro: {
@@ -466,7 +520,7 @@ export const CONTENT = {
         "El mismo criterio conecta ambos perfiles: hacer que los sistemas de IA y datos sean útiles, gobernables y suficientemente enseñables para sobrevivir más allá de la primera demo.",
     },
     role: {
-      number: "Nº 05",
+      number: "Nº 06",
       title: "Rol Actual",
       lead: "Dónde sucede hoy el trabajo.",
       org: "NTT DATA — Barcelona, España",
@@ -482,7 +536,7 @@ export const CONTENT = {
       ],
     },
     experience: {
-      number: "Nº 06",
+      number: "Nº 07",
       title: "Experiencia Seleccionada",
       lead: "Una línea de tiempo condensada.",
       items: [
@@ -543,7 +597,7 @@ export const CONTENT = {
       ],
     },
     domains: {
-      number: "Nº 07",
+      number: "Nº 08",
       title: "Dominios de Arquitectura",
       lead: "El territorio que cubre la práctica.",
       items: [
@@ -574,7 +628,7 @@ export const CONTENT = {
       ],
     },
     stories: {
-      number: "Nº 08",
+      number: "Nº 09",
       title: "Trabajo Seleccionado",
       lead: "Tres compromisos, contados de forma breve.",
       items: [
@@ -596,7 +650,7 @@ export const CONTENT = {
       ],
     },
     academic: {
-      number: "Nº 09",
+      number: "Nº 10",
       title: "Perfil Académico",
       lead: "Docencia, mentoría, diseño curricular.",
       listTitle: "Roles académicos",
@@ -612,7 +666,7 @@ export const CONTENT = {
       ],
     },
     education: {
-      number: "Nº 10",
+      number: "Nº 11",
       title: "Formación",
       lead: "Formación ejecutiva, técnica e internacional.",
       items: [
@@ -628,7 +682,7 @@ export const CONTENT = {
       ],
     },
     stack: {
-      number: "Nº 11",
+      number: "Nº 12",
       title: "Stack Técnico",
       lead: "Herramientas con las que opera la práctica, no una lista de deseos.",
       groups: [
@@ -641,7 +695,7 @@ export const CONTENT = {
       ],
     },
     contact: {
-      number: "Nº 12",
+      number: "Nº 13",
       title: "Contacto",
       lead: "Para arquitectura enterprise de IA, estrategia Data & AI, asesoría, ponencias y colaboración académica.",
       imageAlt:
