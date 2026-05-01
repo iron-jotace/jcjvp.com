@@ -171,7 +171,7 @@ export const Hero = ({ content }) => {
           </AnimatedRow>
         </Stagger>
 
-        <Reveal as="figure" className="ed-hero-figure" delay={0.12} duration={0.8} y={10} scale={0.985}>
+        <Reveal as="figure" className="ed-hero-figure" delay={0.12} y={10} scale={0.985}>
           <div className="ed-hero-photo">
             <img
               src="/assets/portrait-seated.jpg"
@@ -264,7 +264,7 @@ export const HelpSection = ({ content }) => {
               transition={
                 reduceMotion
                   ? { duration: 0 }
-                  : { duration: 0.78, ease: [0.16, 1, 0.3, 1] }
+                  : { duration: 0.62, ease: [0.16, 1, 0.3, 1] }
               }
             >
               <h3 className="ed-help-title serif">{h.items[activeHelpIndex].title}</h3>

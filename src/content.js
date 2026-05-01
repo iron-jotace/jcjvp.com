@@ -59,7 +59,7 @@ export const CONTENT = {
       ],
     },
     help: {
-      number: "Nº 03 — Where I can help",
+      number: "Nº 03",
       title: "Where I can help",
       lead: "Architecture, strategy and enablement for enterprise Data & AI.",
       closing:
@@ -392,7 +392,7 @@ export const CONTENT = {
       ],
     },
     help: {
-      number: "Nº 03 — Dónde puedo aportar valor",
+      number: "Nº 03",
       title: "Dónde puedo aportar valor",
       lead: "Arquitectura, estrategia y enablement para Datos e IA empresarial.",
       closing:

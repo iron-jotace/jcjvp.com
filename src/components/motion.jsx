@@ -9,7 +9,7 @@ const viewport = {
 };
 
 export const revealTransition = {
-  duration: 0.7,
+  duration: 0.65,
   ease,
 };
 
@@ -145,7 +145,7 @@ export const MotionRule = ({ className, direction = "x", delay = 0 }) => {
       initial={initial}
       whileInView={animate}
       viewport={viewport}
-      transition={{ duration: 0.65, ease, delay }}
+      transition={{ duration: revealTransition.duration, ease, delay }}
     />
   );
 };
