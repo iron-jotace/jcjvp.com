@@ -223,6 +223,30 @@ export const ArchitectureSignatureSection = ({ content }) => {
   );
 };
 
+export const ArchitectureConversationSection = ({ content }) => {
+  const c = content.architectureConversation;
+  if (!c) return null;
+
+  return (
+    <Section id="architecture-conversation" number={c.number} title={c.title} lead={c.lead} screenLabel="04 Architecture Conversation">
+      <div className="ed-conversation">
+        <Stagger className="ed-conversation-copy" stagger={0.065}>
+          {c.quote ? <AnimatedRow as="p" className="ed-conversation-quote serif">“{c.quote}”</AnimatedRow> : null}
+          <AnimatedRow as="p" className="ed-conversation-body">{c.body}</AnimatedRow>
+        </Stagger>
+        {c.image ? (
+          <Reveal as="figure" className="ed-conversation-figure" y={10} scale={0.99}>
+            <div className="ed-editorial-photo">
+              <img src={c.image} alt="" loading="lazy" />
+            </div>
+            {c.caption ? <figcaption className="ed-editorial-caption mono">{c.caption}</figcaption> : null}
+          </Reveal>
+        ) : null}
+      </div>
+    </Section>
+  );
+};
+
 export const HelpSection = ({ content }) => {
   const h = content.help;
   const reduceMotion = useReducedMotion();
@@ -306,7 +330,7 @@ export const HelpSection = ({ content }) => {
 export const TracksSection = ({ content }) => {
   const t = content.tracks;
   return (
-    <Section id="tracks" number={t.number} title={t.title} lead={t.lead} screenLabel="03 Two Tracks">
+    <Section id="tracks" number={t.number} title={t.title} lead={t.lead} screenLabel="06 Two Tracks">
       <div className="ed-tracks">
         <Reveal className="ed-track ed-track-pro">
         <Stagger stagger={0.065}>
@@ -359,7 +383,7 @@ export const TracksSection = ({ content }) => {
 export const RoleSection = ({ content }) => {
   const r = content.role;
   return (
-    <Section id="role" number={r.number} title={r.title} lead={r.lead} screenLabel="04 Current Role">
+    <Section id="role" number={r.number} title={r.title} lead={r.lead} screenLabel="07 Current Role">
       <Stagger className="ed-role" stagger={0.07}>
         <AnimatedRow as="div" className="ed-role-head">
           <p className="ed-role-org">{r.org}</p>
@@ -383,7 +407,7 @@ export const RoleSection = ({ content }) => {
 export const ExperienceSection = ({ content }) => {
   const e = content.experience;
   return (
-    <Section id="experience" number={e.number} title={e.title} lead={e.lead} screenLabel="05 Experience">
+    <Section id="experience" number={e.number} title={e.title} lead={e.lead} screenLabel="08 Experience">
       <Stagger as="ol" className="ed-exp" stagger={0.065}>
         {e.items.map((it, i) => (
           <AnimatedRow key={i} className="ed-exp-row">
@@ -396,6 +420,24 @@ export const ExperienceSection = ({ content }) => {
           </AnimatedRow>
         ))}
       </Stagger>
+      {e.leadershipEvidence ? (
+        <Reveal as="aside" className="ed-exp-evidence">
+          <div className="ed-exp-evidence-copy">
+            <h3 className="serif">{e.leadershipEvidence.title}</h3>
+            <p>{e.leadershipEvidence.body}</p>
+          </div>
+          {e.leadershipEvidence.image ? (
+            <figure>
+              <div className="ed-editorial-photo">
+                <img src={e.leadershipEvidence.image} alt="" loading="lazy" />
+              </div>
+              {e.leadershipEvidence.caption ? (
+                <figcaption className="ed-editorial-caption mono">{e.leadershipEvidence.caption}</figcaption>
+              ) : null}
+            </figure>
+          ) : null}
+        </Reveal>
+      ) : null}
     </Section>
   );
 };
@@ -403,7 +445,7 @@ export const ExperienceSection = ({ content }) => {
 export const DomainsSection = ({ content }) => {
   const d = content.domains;
   return (
-    <Section id="domains" number={d.number} title={d.title} lead={d.lead} screenLabel="06 Domains">
+    <Section id="domains" number={d.number} title={d.title} lead={d.lead} screenLabel="09 Domains">
       <Stagger as="dl" className="ed-domains" stagger={0.065}>
         {d.items.map((it, i) => (
           <AnimatedRow as="div" key={i} className="ed-domain-row">
@@ -422,7 +464,7 @@ export const DomainsSection = ({ content }) => {
 export const StoriesSection = ({ content }) => {
   const s = content.stories;
   return (
-    <Section id="stories" number={s.number} title={s.title} lead={s.lead} screenLabel="07 Selected Work">
+    <Section id="stories" number={s.number} title={s.title} lead={s.lead} screenLabel="10 Selected Work">
       <Stagger className="ed-stories" stagger={0.08}>
         {s.items.map((it, i) => (
           <AnimatedRow as="article" key={i} className="ed-story">
@@ -432,6 +474,23 @@ export const StoriesSection = ({ content }) => {
           </AnimatedRow>
         ))}
       </Stagger>
+      {s.featured ? (
+        <Reveal as="article" className="ed-featured-story">
+          <div className="ed-featured-story-copy">
+            <p className="ed-story-tag mono">{s.featured.tag}</p>
+            <h3 className="ed-featured-story-title serif">{s.featured.title}</h3>
+            <p className="ed-featured-story-body">{s.featured.body}</p>
+          </div>
+          {s.featured.image ? (
+            <figure className="ed-featured-story-figure">
+              <div className="ed-editorial-photo">
+                <img src={s.featured.image} alt="" loading="lazy" />
+              </div>
+              {s.featured.caption ? <figcaption className="ed-editorial-caption mono">{s.featured.caption}</figcaption> : null}
+            </figure>
+          ) : null}
+        </Reveal>
+      ) : null}
     </Section>
   );
 };
@@ -439,7 +498,7 @@ export const StoriesSection = ({ content }) => {
 export const AcademicSection = ({ content }) => {
   const a = content.academic;
   return (
-    <Section id="academic" number={a.number} title={a.title} lead={a.lead} screenLabel="08 Academic">
+    <Section id="academic" number={a.number} title={a.title} lead={a.lead} screenLabel="11 Academic">
       <div className="ed-academic">
         <Stagger className="ed-academic-prose" stagger={0.07}>
           {a.body.map((p, i) => (
@@ -459,6 +518,22 @@ export const AcademicSection = ({ content }) => {
             ))}
           </Stagger>
         </Reveal>
+        {a.signal ? (
+          <Reveal as="aside" className="ed-academic-signal">
+            <div className="ed-academic-signal-copy">
+              <h3 className="serif">{a.signal.title}</h3>
+              <p>{a.signal.body}</p>
+            </div>
+            {a.signal.image ? (
+              <figure>
+                <div className="ed-editorial-photo">
+                  <img src={a.signal.image} alt="" loading="lazy" />
+                </div>
+                {a.signal.caption ? <figcaption className="ed-editorial-caption mono">{a.signal.caption}</figcaption> : null}
+              </figure>
+            ) : null}
+          </Reveal>
+        ) : null}
       </div>
     </Section>
   );
@@ -467,7 +542,7 @@ export const AcademicSection = ({ content }) => {
 export const EducationSection = ({ content }) => {
   const e = content.education;
   return (
-    <Section id="education" number={e.number} title={e.title} lead={e.lead} screenLabel="09 Education">
+    <Section id="education" number={e.number} title={e.title} lead={e.lead} screenLabel="12 Education">
       <Stagger as="ul" className="ed-edu" stagger={0.065}>
         {e.items.map((it, i) => (
           <AnimatedRow key={i} className="ed-edu-row">
@@ -484,7 +559,7 @@ export const EducationSection = ({ content }) => {
 export const StackSection = ({ content }) => {
   const s = content.stack;
   return (
-    <Section id="stack" number={s.number} title={s.title} lead={s.lead} screenLabel="10 Stack">
+    <Section id="stack" number={s.number} title={s.title} lead={s.lead} screenLabel="13 Stack">
       <Stagger as="dl" className="ed-stack" stagger={0.055}>
         {s.groups.map((g, i) => (
           <AnimatedRow as="div" key={i} className="ed-stack-row">
@@ -500,7 +575,7 @@ export const StackSection = ({ content }) => {
 export const ContactSection = ({ content }) => {
   const c = content.contact;
   return (
-    <Section id="contact" number={c.number} title={c.title} lead={c.lead} screenLabel="11 Contact">
+    <Section id="contact" number={c.number} title={c.title} lead={c.lead} screenLabel="14 Contact">
       <Stagger className="ed-contact" stagger={0.075}>
         <AnimatedRow as="div" className="ed-contact-identity">
           <div className="ed-contact-id">

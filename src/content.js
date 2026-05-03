@@ -85,8 +85,17 @@ export const CONTENT = {
         },
       ],
     },
-    help: {
+    architectureConversation: {
       number: "Nº 04",
+      title: "Architecture in Conversation",
+      lead: "Technical leadership is not about applying AI everywhere. It is about knowing when not to use it.",
+      quote: "When LLMs are not the answer.",
+      body: "Technical leadership is not about applying AI everywhere. It is about knowing when not to use it, where governance matters, and how to turn architectural judgment into decisions teams can trust.",
+      image: "/assets/capitole-llms-not-answer.jpg",
+      caption: "Tech talk at Capitole.",
+    },
+    help: {
+      number: "Nº 05",
       title: "Where I can help",
       lead: "Where the architecture signature turns into decisions, systems and delivery.",
       closing:
@@ -125,7 +134,7 @@ export const CONTENT = {
       ],
     },
     tracks: {
-      number: "Nº 05",
+      number: "Nº 06",
       title: "Two tracks. One architecture mindset.",
       lead: "Enterprise practice and academic practice, held in one hand.",
       pro: {
@@ -160,7 +169,7 @@ export const CONTENT = {
         "The same judgment connects both tracks: how to make AI and data systems useful, governable and teachable enough to survive beyond the first demo.",
     },
     role: {
-      number: "Nº 06",
+      number: "Nº 07",
       title: "Current Role",
       lead: "Where the work happens today.",
       org: "NTT DATA — Barcelona, Spain",
@@ -176,7 +185,7 @@ export const CONTENT = {
       ],
     },
     experience: {
-      number: "Nº 07",
+      number: "Nº 08",
       title: "Selected Experience",
       lead: "A condensed timeline.",
       items: [
@@ -235,9 +244,15 @@ export const CONTENT = {
           note: "Supported digital transformation, IT service analytics, Power BI dashboards and Azure-based process automation.",
         },
       ],
+      leadershipEvidence: {
+        title: "Leadership in practice",
+        body: "Before architecture becomes a platform, it becomes team alignment: shared language, cloud foundations, delivery standards and the discipline to turn data capabilities into organizational practice.",
+        image: "/assets/delosi-aws-peru-data-team.jpg",
+        caption: "AWS Perú visit with the Delosi Data team.",
+      },
     },
     domains: {
-      number: "Nº 08",
+      number: "Nº 09",
       title: "Architecture Domains",
       lead: "The territory the practice covers.",
       items: [
@@ -268,7 +283,7 @@ export const CONTENT = {
       ],
     },
     stories: {
-      number: "Nº 09",
+      number: "Nº 10",
       title: "Selected Work",
       lead: "Three engagements, told briefly.",
       items: [
@@ -288,9 +303,16 @@ export const CONTENT = {
           body: "Led data lake and lakehouse architectures, ingestion pipelines, ML/AI blueprints and migration initiatives using services such as S3, Glue, Kinesis, Redshift, BigQuery, Dataform and Dataproc.",
         },
       ],
+      featured: {
+        tag: "Applied AI · Safety-critical environments",
+        title: "Applied AI in safety-critical environments.",
+        body: "Explored how Big Data and AI can support firefighter protection and operational decision-making in field environments, where technology must augment human judgment under real-world constraints.",
+        image: "/assets/kyndryl-fire-protect.jpg",
+        caption: "Fire Protect initiative at Kyndryl — Big Data and AI applied to firefighter protection.",
+      },
     },
     academic: {
-      number: "Nº 10",
+      number: "Nº 11",
       title: "Academic Profile",
       lead: "Teaching, mentoring, curriculum design.",
       listTitle: "Academic Roles",
@@ -304,9 +326,15 @@ export const CONTENT = {
         { y: "2025 — Now", t: "Professor Part-time · Universitat de Barcelona" },
         { y: "Mentoring", t: "Thesis supervision, applied AI projects and data engineering guidance" },
       ],
+      signal: {
+        title: "Responsible AI & academic dialogue",
+        body: "Academic work extends the architecture practice into responsible AI, technical education and the translation of enterprise experience into learning environments.",
+        image: "/assets/usmp-ai-ethics-conference.jpg",
+        caption: "USMP virtual conference — Ethics and Responsibility in Artificial Intelligence.",
+      },
     },
     education: {
-      number: "Nº 11",
+      number: "Nº 12",
       title: "Education",
       lead: "Executive, technical and international formation.",
       items: [
@@ -322,7 +350,7 @@ export const CONTENT = {
       ],
     },
     stack: {
-      number: "Nº 12",
+      number: "Nº 13",
       title: "Tech Stack",
       lead: "Tools the practice runs on, not a wishlist.",
       groups: [
@@ -335,7 +363,7 @@ export const CONTENT = {
       ],
     },
     contact: {
-      number: "Nº 13",
+      number: "Nº 14",
       title: "Contact",
       lead: "For enterprise AI architecture, Data & AI strategy, advisory, talks and academic collaboration.",
       imageAlt:
@@ -445,8 +473,17 @@ export const CONTENT = {
         },
       ],
     },
-    help: {
+    architectureConversation: {
       number: "Nº 04",
+      title: "Arquitectura en conversación",
+      lead: "El liderazgo técnico no consiste en aplicar IA en todas partes. Consiste en saber cuándo no usarla.",
+      quote: "Cuando los LLMs no son la respuesta.",
+      body: "El liderazgo técnico no consiste en aplicar IA en todas partes. Consiste en saber cuándo no usarla, dónde importa el gobierno y cómo convertir criterio arquitectónico en decisiones que los equipos puedan confiar.",
+      image: "/assets/capitole-llms-not-answer.jpg",
+      caption: "Tech talk en Capitole.",
+    },
+    help: {
+      number: "Nº 05",
       title: "Dónde puedo aportar valor",
       lead: "Donde la firma de arquitectura se convierte en decisiones, sistemas y delivery.",
       closing:
@@ -485,7 +522,7 @@ export const CONTENT = {
       ],
     },
     tracks: {
-      number: "Nº 05",
+      number: "Nº 06",
       title: "Dos perfiles. Una misma mentalidad arquitectónica.",
       lead: "Práctica empresarial y práctica académica, sostenidas en una misma mano.",
       pro: {
@@ -520,7 +557,7 @@ export const CONTENT = {
         "El mismo criterio conecta ambos perfiles: hacer que los sistemas de IA y datos sean útiles, gobernables y suficientemente enseñables para sobrevivir más allá de la primera demo.",
     },
     role: {
-      number: "Nº 06",
+      number: "Nº 07",
       title: "Rol Actual",
       lead: "Dónde sucede hoy el trabajo.",
       org: "NTT DATA — Barcelona, España",
@@ -536,7 +573,7 @@ export const CONTENT = {
       ],
     },
     experience: {
-      number: "Nº 07",
+      number: "Nº 08",
       title: "Experiencia Seleccionada",
       lead: "Una línea de tiempo condensada.",
       items: [
@@ -595,9 +632,15 @@ export const CONTENT = {
           note: "Transformación digital, analítica de servicios IT, dashboards Power BI y automatización de procesos sobre Azure.",
         },
       ],
+      leadershipEvidence: {
+        title: "Liderazgo en la práctica",
+        body: "Antes de que la arquitectura se convierta en plataforma, debe convertirse en alineamiento de equipo: lenguaje común, fundamentos cloud, estándares de delivery y disciplina para transformar capacidades de datos en práctica organizacional.",
+        image: "/assets/delosi-aws-peru-data-team.jpg",
+        caption: "Visita a AWS Perú con el equipo de Data de Delosi.",
+      },
     },
     domains: {
-      number: "Nº 08",
+      number: "Nº 09",
       title: "Dominios de Arquitectura",
       lead: "El territorio que cubre la práctica.",
       items: [
@@ -628,7 +671,7 @@ export const CONTENT = {
       ],
     },
     stories: {
-      number: "Nº 09",
+      number: "Nº 10",
       title: "Trabajo Seleccionado",
       lead: "Tres compromisos, contados de forma breve.",
       items: [
@@ -648,9 +691,16 @@ export const CONTENT = {
           body: "Liderazgo de arquitecturas data lake y lakehouse, pipelines de ingesta, blueprints ML/AI y migraciones usando servicios como S3, Glue, Kinesis, Redshift, BigQuery, Dataform y Dataproc.",
         },
       ],
+      featured: {
+        tag: "IA aplicada · Entornos críticos de seguridad",
+        title: "IA aplicada en entornos críticos de seguridad.",
+        body: "Exploración de cómo Big Data e IA pueden apoyar la protección de bomberos y la toma de decisiones operativas en campo, donde la tecnología debe aumentar el criterio humano bajo restricciones reales.",
+        image: "/assets/kyndryl-fire-protect.jpg",
+        caption: "Iniciativa Fire Protect en Kyndryl — Big Data e IA aplicada a la protección de bomberos.",
+      },
     },
     academic: {
-      number: "Nº 10",
+      number: "Nº 11",
       title: "Perfil Académico",
       lead: "Docencia, mentoría, diseño curricular.",
       listTitle: "Roles académicos",
@@ -664,9 +714,15 @@ export const CONTENT = {
         { y: "2025 — Hoy", t: "Professor Part-time · Universitat de Barcelona" },
         { y: "Mentoría", t: "Supervisión de tesis, proyectos de IA aplicada y guía en ingeniería de datos" },
       ],
+      signal: {
+        title: "IA responsable y diálogo académico",
+        body: "La práctica académica extiende la arquitectura hacia la IA responsable, la educación técnica y la traducción de experiencia empresarial en entornos de aprendizaje.",
+        image: "/assets/usmp-ai-ethics-conference.jpg",
+        caption: "Conferencia virtual en USMP — Ética y Responsabilidad en la Inteligencia Artificial.",
+      },
     },
     education: {
-      number: "Nº 11",
+      number: "Nº 12",
       title: "Formación",
       lead: "Formación ejecutiva, técnica e internacional.",
       items: [
@@ -682,7 +738,7 @@ export const CONTENT = {
       ],
     },
     stack: {
-      number: "Nº 12",
+      number: "Nº 13",
       title: "Stack Técnico",
       lead: "Herramientas con las que opera la práctica, no una lista de deseos.",
       groups: [
@@ -695,7 +751,7 @@ export const CONTENT = {
       ],
     },
     contact: {
-      number: "Nº 13",
+      number: "Nº 14",
       title: "Contacto",
       lead: "Para arquitectura enterprise de IA, estrategia Data & AI, asesoría, ponencias y colaboración académica.",
       imageAlt:
