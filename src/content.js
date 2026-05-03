@@ -93,6 +93,8 @@ export const CONTENT = {
       body: "Technical leadership is not about applying AI everywhere. It is about knowing when not to use it, where governance matters, and how to turn architectural judgment into decisions teams can trust.",
       image: "/assets/capitole-llms-not-answer.jpg",
       caption: "Tech talk at Capitole.",
+      videoHref: "https://www.youtube.com/watch?v=6PI3a0xmipo&t=141s",
+      videoLabel: "Watch talk ↗",
     },
     help: {
       number: "Nº 05",
@@ -331,6 +333,8 @@ export const CONTENT = {
         body: "Academic work extends the architecture practice into responsible AI, technical education and the translation of enterprise experience into learning environments.",
         image: "/assets/usmp-ai-ethics-conference.jpg",
         caption: "USMP virtual conference — Ethics and Responsibility in Artificial Intelligence.",
+        videoHref: "https://www.youtube.com/watch?v=hk3gcGrvKDM&list=PLkc9IwEpCdrVK9uTemsVMfsV7gG8K5vlv&index=3",
+        videoLabel: "Watch session ↗",
       },
     },
     education: {
@@ -550,6 +554,8 @@ export const CONTENT = {
       body: "El liderazgo técnico no consiste en aplicar IA en todas partes. Consiste en saber cuándo no usarla, dónde importa el gobierno y cómo convertir criterio arquitectónico en decisiones que los equipos puedan confiar.",
       image: "/assets/capitole-llms-not-answer.jpg",
       caption: "Tech talk en Capitole.",
+      videoHref: "https://www.youtube.com/watch?v=6PI3a0xmipo&t=141s",
+      videoLabel: "Ver charla ↗",
     },
     help: {
       number: "Nº 05",
@@ -788,6 +794,8 @@ export const CONTENT = {
         body: "La práctica académica extiende la arquitectura hacia la IA responsable, la educación técnica y la traducción de experiencia empresarial en entornos de aprendizaje.",
         image: "/assets/usmp-ai-ethics-conference.jpg",
         caption: "Conferencia virtual en USMP — Ética y Responsabilidad en la Inteligencia Artificial.",
+        videoHref: "https://www.youtube.com/watch?v=hk3gcGrvKDM&list=PLkc9IwEpCdrVK9uTemsVMfsV7gG8K5vlv&index=3",
+        videoLabel: "Ver sesión ↗",
       },
     },
     education: {

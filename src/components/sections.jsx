@@ -29,6 +29,21 @@ const Section = ({ id, number, title, lead, children, screenLabel, railAddon }) 
   </AnimatedSection>
 );
 
+const EditorialCaption = ({ caption, videoHref, videoLabel }) => {
+  if (!caption && !videoHref) return null;
+
+  return (
+    <figcaption className="ed-editorial-caption mono">
+      {caption ? <span>{caption}</span> : null}
+      {videoHref ? (
+        <a href={videoHref} target="_blank" rel="noopener noreferrer">
+          {videoLabel}
+        </a>
+      ) : null}
+    </figcaption>
+  );
+};
+
 // EN / ES toggle, masthead-style.
 const LangToggle = ({ lang, setLang, label, options }) => (
   <div className="ed-lang" role="group" aria-label={label}>
@@ -239,7 +254,7 @@ export const ArchitectureConversationSection = ({ content }) => {
             <div className="ed-editorial-photo">
               <img src={c.image} alt="" loading="lazy" />
             </div>
-            {c.caption ? <figcaption className="ed-editorial-caption mono">{c.caption}</figcaption> : null}
+            <EditorialCaption caption={c.caption} videoHref={c.videoHref} videoLabel={c.videoLabel} />
           </Reveal>
         ) : null}
       </div>
@@ -526,10 +541,10 @@ export const AcademicSection = ({ content }) => {
             </div>
             {a.signal.image ? (
               <figure>
-                <div className="ed-editorial-photo">
-                  <img src={a.signal.image} alt="" loading="lazy" />
-                </div>
-                {a.signal.caption ? <figcaption className="ed-editorial-caption mono">{a.signal.caption}</figcaption> : null}
+              <div className="ed-editorial-photo">
+                <img src={a.signal.image} alt="" loading="lazy" />
+              </div>
+                <EditorialCaption caption={a.signal.caption} videoHref={a.signal.videoHref} videoLabel={a.signal.videoLabel} />
               </figure>
             ) : null}
           </Reveal>
@@ -594,6 +609,7 @@ export const EducationSection = ({ content }) => {
                 key={city.key}
                 type="button"
                 className={`ed-edu-chip mono ${activeCityData?.key === city.key ? "is-active" : ""}`}
+                aria-pressed={activeCityData?.key === city.key}
                 onClick={() => activateCity(city.key)}
                 onFocus={() => activateCity(city.key)}
                 onMouseEnter={() => activateCity(city.key)}
@@ -670,6 +686,8 @@ export const EducationSection = ({ content }) => {
                     className={`ed-edu-city ${isActive ? "is-active" : ""}`}
                     role="button"
                     tabIndex={0}
+                    aria-label={city.city}
+                    aria-pressed={isActive}
                     onClick={() => activateCity(city.key)}
                     onFocus={() => activateCity(city.key)}
                     onMouseEnter={() => activateCity(city.key)}
