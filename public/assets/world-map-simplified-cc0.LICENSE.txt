@@ -1,0 +1,5 @@
+Source: Wikimedia Commons, File:Simplified World Map (Vector).svg
+URL: https://commons.wikimedia.org/wiki/File:Simplified_World_Map_(Vector).svg
+Author: Josivaldolira
+License: Creative Commons CC0 1.0 Universal Public Domain Dedication
+Local changes: normalized colors for editorial display and removed the original background fill.

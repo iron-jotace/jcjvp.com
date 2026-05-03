@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   AnimatedRow,
@@ -541,17 +541,155 @@ export const AcademicSection = ({ content }) => {
 
 export const EducationSection = ({ content }) => {
   const e = content.education;
+  const reduceMotion = useReducedMotion();
+  const cities = e.cities || [];
+  const [activeCity, setActiveCity] = useState(cities[0]?.key);
+  const [isPaused, setIsPaused] = useState(false);
+  const pauseTimer = useRef(null);
+  const activeCityData = cities.find((city) => city.key === activeCity) || cities[0];
+  const projectCity = (city) => ({
+    x: ((city.lon + 180) / 360) * 100,
+    y: ((90 - city.lat) / 180) * 50,
+  });
+  const activePoint = activeCityData ? projectCity(activeCityData) : null;
+  const activateCity = (key, pause = true) => {
+    setActiveCity(key);
+    if (!pause) return;
+    setIsPaused(true);
+    if (pauseTimer.current) window.clearTimeout(pauseTimer.current);
+    pauseTimer.current = window.setTimeout(() => setIsPaused(false), 9000);
+  };
+
+  useEffect(() => {
+    if (cities.length && !cities.some((city) => city.key === activeCity)) {
+      setActiveCity(cities[0].key);
+    }
+  }, [activeCity, cities]);
+
+  useEffect(() => () => {
+    if (pauseTimer.current) window.clearTimeout(pauseTimer.current);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || isPaused || cities.length < 2) return undefined;
+
+    const timer = window.setInterval(() => {
+      setActiveCity((current) => {
+        const currentIndex = Math.max(0, cities.findIndex((city) => city.key === current));
+        return cities[(currentIndex + 1) % cities.length].key;
+      });
+    }, 4200);
+
+    return () => window.clearInterval(timer);
+  }, [cities, isPaused, reduceMotion]);
+
   return (
     <Section id="education" number={e.number} title={e.title} lead={e.lead} screenLabel="12 Education">
-      <Stagger as="ul" className="ed-edu" stagger={0.065}>
-        {e.items.map((it, i) => (
-          <AnimatedRow key={i} className="ed-edu-row">
-            <span className="ed-edu-y mono">{it.y}</span>
-            <span className="ed-edu-t serif">{it.t}</span>
-            <span className="ed-edu-o">{it.o}</span>
+      <div className="ed-education">
+        <Stagger className="ed-edu-panel" stagger={0.065}>
+          <AnimatedRow as="p" className="ed-edu-intro">{e.intro}</AnimatedRow>
+          <AnimatedRow as="div" className="ed-edu-switcher" aria-label={e.mapLabel}>
+            {cities.map((city) => (
+              <button
+                key={city.key}
+                type="button"
+                className={`ed-edu-chip mono ${activeCityData?.key === city.key ? "is-active" : ""}`}
+                onClick={() => activateCity(city.key)}
+                onFocus={() => activateCity(city.key)}
+                onMouseEnter={() => activateCity(city.key)}
+              >
+                {city.city}
+              </button>
+            ))}
           </AnimatedRow>
-        ))}
-      </Stagger>
+          {activeCityData ? (
+            <AnimatedRow as="div" className="ed-edu-active-panel">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.article
+                  key={activeCityData.key}
+                  className="ed-edu-active"
+                  initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+                  transition={reduceMotion ? { duration: 0 } : { duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <p className="ed-edu-active-country mono">
+                    {activeCityData.countryFlag ? <span aria-hidden="true">{activeCityData.countryFlag}</span> : null}
+                    <span>{activeCityData.country}</span>
+                  </p>
+                  <h3 className="ed-edu-active-desc serif">{activeCityData.descriptor}</h3>
+                  <ul className="ed-edu-milestones">
+                    {activeCityData.milestones.map((milestone) => (
+                      <li key={milestone}>{milestone}</li>
+                    ))}
+                  </ul>
+                </motion.article>
+              </AnimatePresence>
+            </AnimatedRow>
+          ) : null}
+        </Stagger>
+        <Reveal
+          as="aside"
+          className="ed-edu-map"
+          aria-label={e.mapLabel}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="ed-edu-map-head">
+            <p className="mono">{e.mapLabel}</p>
+          </div>
+          <svg className="ed-edu-world" viewBox="0 0 100 50" role="img" aria-label={e.mapLabel}>
+            <g className="ed-edu-graticule" aria-hidden="true">
+              <path d="M8 12.5H92M6 25H94M8 37.5H92" />
+              <path d="M20 5V45M40 4V46M60 4V46M80 5V45" />
+            </g>
+            <image
+              className="ed-edu-map-base"
+              href="/assets/world-map-simplified-cc0.svg"
+              x="0"
+              y="0"
+              width="100"
+              height="50"
+              preserveAspectRatio="xMidYMid meet"
+              aria-hidden="true"
+            />
+            {activePoint ? (
+              <path
+                className="ed-edu-focus-line"
+                d={`M${activePoint.x} ${activePoint.y} L50 25`}
+                aria-hidden="true"
+              />
+            ) : null}
+            <g className="ed-edu-cities">
+              {cities.map((city) => {
+                const point = projectCity(city);
+                const isActive = activeCityData?.key === city.key;
+                return (
+                  <g
+                    key={city.key}
+                    className={`ed-edu-city ${isActive ? "is-active" : ""}`}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => activateCity(city.key)}
+                    onFocus={() => activateCity(city.key)}
+                    onMouseEnter={() => activateCity(city.key)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        activateCity(city.key);
+                      }
+                    }}
+                  >
+                    <circle className="ed-edu-city-halo" cx={point.x} cy={point.y} r="3.8" />
+                    <circle className="ed-edu-city-point" cx={point.x} cy={point.y} r={city.milestones.length > 1 ? "1.45" : "1.15"} />
+                    <text className="ed-edu-city-label" x={point.x + 1.8} y={point.y - 1.8}>{city.city}</text>
+                  </g>
+                );
+              })}
+            </g>
+          </svg>
+        </Reveal>
+      </div>
     </Section>
   );
 };
