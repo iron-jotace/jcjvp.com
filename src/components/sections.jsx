@@ -421,38 +421,141 @@ export const RoleSection = ({ content }) => {
 
 export const ExperienceSection = ({ content }) => {
   const e = content.experience;
+  const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef(null);
+  const activeItem = e.items[activeIndex] || e.items[0];
+  const total = e.items.length;
+  const currentCount = `${String(activeIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+
+  const goToExperience = (index, pause = true) => {
+    setActiveIndex((index + total) % total);
+    if (pause) {
+      setIsPaused(true);
+    }
+  };
+
+  useEffect(() => {
+    if (activeIndex >= total) {
+      setActiveIndex(0);
+    }
+  }, [activeIndex, total]);
+
+  useEffect(() => {
+    if (reduceMotion || isPaused || total < 2) {
+      return undefined;
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % total);
+    }, 9000);
+
+    return () => window.clearInterval(timer);
+  }, [isPaused, reduceMotion, total]);
+
+  if (!activeItem) {
+    return null;
+  }
+
   return (
     <Section id="experience" number={e.number} title={e.title} lead={e.lead} screenLabel="08 Experience">
-      <Stagger as="ol" className="ed-exp" stagger={0.065}>
-        {e.items.map((it, i) => (
-          <AnimatedRow key={i} className="ed-exp-row">
-            <div className="ed-exp-year mono">{it.year}</div>
-            <div className="ed-exp-body">
-              <p className="ed-exp-org">{it.org}</p>
-              <p className="ed-exp-role serif-italic">{it.role}</p>
-              <p className="ed-exp-note">{it.note}</p>
+      <Stagger
+        className="ed-exp"
+        stagger={0.055}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocus={() => setIsPaused(true)}
+        onBlur={() => setIsPaused(false)}
+        onKeyDown={(event) => {
+          if (event.key === "ArrowRight") goToExperience(activeIndex + 1);
+          if (event.key === "ArrowLeft") goToExperience(activeIndex - 1);
+        }}
+      >
+        <AnimatedRow
+          as="div"
+          className="ed-exp-stage"
+          tabIndex={0}
+          aria-roledescription="carousel"
+          aria-label={e.controls.carouselLabel}
+          onTouchStart={(event) => {
+            touchStartX.current = event.touches[0].clientX;
+          }}
+          onTouchEnd={(event) => {
+            if (touchStartX.current === null) return;
+            const delta = event.changedTouches[0].clientX - touchStartX.current;
+            touchStartX.current = null;
+            if (Math.abs(delta) < 42) return;
+            goToExperience(delta < 0 ? activeIndex + 1 : activeIndex - 1);
+          }}
+        >
+          <div className="ed-exp-controls" role="group" aria-label={e.controls.navigationLabel}>
+            <p className="ed-exp-count mono" aria-live="polite">{currentCount}</p>
+            <div className="ed-exp-arrows">
+              <button
+                type="button"
+                className="ed-exp-arrow"
+                aria-label={e.controls.previous}
+                onClick={() => goToExperience(activeIndex - 1)}
+              >
+                <span aria-hidden="true">&lt;</span>
+              </button>
+              <button
+                type="button"
+                className="ed-exp-arrow"
+                aria-label={e.controls.next}
+                onClick={() => goToExperience(activeIndex + 1)}
+              >
+                <span aria-hidden="true">&gt;</span>
+              </button>
             </div>
-          </AnimatedRow>
-        ))}
-      </Stagger>
-      {e.leadershipEvidence ? (
-        <Reveal as="aside" className="ed-exp-evidence">
-          <div className="ed-exp-evidence-copy">
-            <h3 className="serif">{e.leadershipEvidence.title}</h3>
-            <p>{e.leadershipEvidence.body}</p>
           </div>
-          {e.leadershipEvidence.image ? (
-            <figure>
-              <div className="ed-editorial-photo">
-                <img src={e.leadershipEvidence.image} alt="" loading="lazy" />
+
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.article
+              key={activeItem.company}
+              className="ed-exp-card"
+              aria-live="polite"
+              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -12 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.46, ease: [0.16, 1, 0.3, 1] }
+              }
+            >
+              <p className="ed-exp-date mono">{activeItem.dateLocation}</p>
+              <div className="ed-exp-wordmark-wrap" aria-label={activeItem.company}>
+                <p className="ed-exp-wordmark serif" aria-hidden="true">
+                  {activeItem.wordmark || activeItem.company}
+                </p>
               </div>
-              {e.leadershipEvidence.caption ? (
-                <figcaption className="ed-editorial-caption mono">{e.leadershipEvidence.caption}</figcaption>
-              ) : null}
-            </figure>
-          ) : null}
-        </Reveal>
-      ) : null}
+              <p className="ed-exp-role serif-italic">{activeItem.role}</p>
+              <p className="ed-exp-description">{activeItem.description}</p>
+              <ul className="ed-exp-tags" aria-label={`${activeItem.company} ${e.controls.tagsLabel}`}>
+                {activeItem.tags.map((tag) => (
+                  <li key={tag} className="mono">{tag}</li>
+                ))}
+              </ul>
+            </motion.article>
+          </AnimatePresence>
+        </AnimatedRow>
+
+        <AnimatedRow as="div" className="ed-exp-selector" aria-label={e.controls.selectorLabel}>
+          {e.items.map((item, index) => (
+            <button
+              key={item.company}
+              type="button"
+              className={`ed-exp-logo ${activeIndex === index ? "is-active" : ""}`}
+              aria-pressed={activeIndex === index}
+              onClick={() => goToExperience(index)}
+            >
+              <span className="ed-exp-logo-mark serif">{item.wordmark || item.company}</span>
+            </button>
+          ))}
+        </AnimatedRow>
+      </Stagger>
     </Section>
   );
 };

@@ -860,62 +860,225 @@ img { display: block; max-width: 100%; }
   font-size: 11px;
 }
 
-/* ─── Experience (Nº 05) ─────────────────────────────────── */
+/* ─── Experience (Nº 08) ─────────────────────────────────── */
 
-.ed-exp { list-style: none; padding: 0; margin: 0; }
-.ed-exp-row {
+.ed-exp {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: clamp(20px, 3vw, 48px);
-  padding: 28px 0;
-  border-top: 1px solid var(--rule);
-}
-.ed-exp-row:last-child { border-bottom: 1px solid var(--rule); }
-.ed-exp-year { font-size: 11px; padding-top: 6px; }
-.ed-exp-org { margin: 0 0 4px; font-size: 19px; color: var(--paper); letter-spacing: -0.005em; }
-.ed-exp-role { margin: 0 0 8px; font-size: 16px; color: var(--paper-2); }
-.ed-exp-note { margin: 0; font-size: 14px; color: var(--muted); }
-.ed-exp-evidence {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(220px, 0.62fr);
-  gap: clamp(18px, 2.6vw, 32px);
+  grid-template-columns: 1fr;
+  gap: clamp(14px, 2vw, 22px);
   align-items: start;
-  margin-top: clamp(26px, 4vw, 46px);
-  padding: 18px 0 0 0;
+  max-width: 1040px;
+}
+.ed-exp-selector {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 0 8px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.ed-exp-selector::-webkit-scrollbar {
+  display: none;
+}
+.ed-exp-logo {
+  appearance: none;
+  flex: 0 0 auto;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+.ed-exp-logo:hover,
+.ed-exp-logo:focus-visible {
+  color: var(--paper-2);
+  background: color-mix(in oklab, var(--paper) 2.8%, transparent);
+  border-color: var(--rule-strong);
+}
+.ed-exp-logo.is-active {
+  color: var(--paper);
+  border-color: var(--paper-3);
+  background: color-mix(in oklab, var(--paper) 4.5%, transparent);
+}
+.ed-exp-logo-mark {
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.025em;
+  color: currentColor;
+  white-space: nowrap;
+}
+.ed-exp-stage {
+  min-width: 0;
+  min-height: clamp(520px, 42vw, 640px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--paper) 4%, transparent),
+      color-mix(in oklab, var(--paper) 1.5%, transparent) 58%,
+      transparent
+    ),
+    var(--ink-1);
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--paper) 5%, transparent) inset;
+  outline-offset: 8px;
+}
+.ed-exp-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(18px, 2.5vw, 26px) clamp(20px, 3vw, 34px);
+  border-bottom: 1px solid var(--rule);
+}
+.ed-exp-count {
+  margin: 0;
+  color: var(--paper-2);
+  font-variant-numeric: tabular-nums;
+}
+.ed-exp-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ed-exp-arrow {
+  appearance: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper-2);
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+.ed-exp-arrow:hover,
+.ed-exp-arrow:focus-visible {
+  color: var(--paper);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.ed-exp-arrow:active {
+  transform: translateY(1px);
+}
+.ed-exp-card {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(46px, 6vw, 84px) clamp(24px, 5vw, 72px) clamp(30px, 4vw, 52px);
+}
+.ed-exp-date {
+  margin: 0 0 clamp(34px, 5vw, 72px);
+  color: var(--muted);
+  font-size: 10px;
+}
+.ed-exp-wordmark-wrap {
+  max-width: min(100%, 760px);
+  padding-bottom: clamp(24px, 3vw, 34px);
+  border-bottom: 1px solid var(--rule);
+}
+.ed-exp-wordmark {
+  margin: 0;
+  font-size: clamp(58px, 9vw, 126px);
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  color: var(--paper);
+  text-wrap: balance;
+  filter: grayscale(1);
+}
+.ed-exp-role {
+  margin: clamp(24px, 3vw, 34px) 0 0;
+  font-size: clamp(23px, 2.6vw, 34px);
+  line-height: 1.16;
+  color: var(--paper-2);
+  text-wrap: balance;
+}
+.ed-exp-description {
+  max-width: 64ch;
+  min-height: 3.3em;
+  margin: clamp(16px, 2vw, 22px) 0 0;
+  font-size: clamp(16px, 1.55vw, 19px);
+  line-height: 1.62;
+  color: var(--paper-2);
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ed-exp-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: clamp(18px, 2.4vw, 24px) 0 0;
+  margin: clamp(18px, 2.4vw, 24px) 0 0;
   border-top: 1px solid var(--rule);
 }
-.ed-exp-evidence h3 {
-  margin: 0 0 10px;
-  font-size: clamp(21px, 1.9vw, 26px);
-  line-height: 1.16;
-  color: var(--paper);
-}
-.ed-exp-evidence p {
-  margin: 0;
-  max-width: 58ch;
-  font-size: 15px;
-  line-height: 1.62;
-  color: color-mix(in oklab, var(--paper-2) 62%, var(--muted));
-  text-wrap: pretty;
-}
-.ed-exp-evidence figure {
-  margin: 0;
-}
-.ed-exp-evidence .ed-editorial-photo img {
-  aspect-ratio: 4 / 3;
-  filter: brightness(0.82) contrast(1.06) saturate(0.62);
+.ed-exp-tags li {
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--paper-3);
+  background: color-mix(in oklab, var(--paper) 2.4%, transparent);
+  font-size: 8.5px;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
-@media (max-width: 600px) {
-  .ed-exp-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 22px 0;
+@media (max-width: 940px) {
+  .ed-exp {
+    max-width: 100%;
   }
-  .ed-exp-year { padding-top: 0; }
-  .ed-exp-org { font-size: 18px; }
-  .ed-exp-evidence {
-    grid-template-columns: 1fr;
+  .ed-exp-stage {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ed-exp {
+    gap: 18px;
+  }
+  .ed-exp-controls {
+    padding: 16px 18px;
+  }
+  .ed-exp-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .ed-exp-card {
+    padding: 36px 18px 24px;
+  }
+  .ed-exp-wordmark {
+    font-size: clamp(45px, 14vw, 78px);
+  }
+  .ed-exp-role {
+    font-size: clamp(21px, 6vw, 28px);
+  }
+  .ed-exp-description {
+    min-height: 3.3em;
+    font-size: 16px;
+    -webkit-line-clamp: 2;
+  }
+  .ed-exp-tags li {
+    padding: 5px 9px;
+  }
+  .ed-exp-logo-mark {
+    font-size: 13px;
   }
 }
 
